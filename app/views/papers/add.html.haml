@@ -1,0 +1,9 @@
+
+%h2 Create New Paper
+
+= form_tag papers_path do
+
+  = label :paper, :title, 'Title'
+  = text_field :paper, 'title'
+
+  = submit_tag 'Save Changes', :class => 'btn btn-primary'
