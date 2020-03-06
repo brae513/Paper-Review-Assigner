@@ -14,52 +14,58 @@ How to run:
 
 4. $ bundle install --without production
 
-5. $ rake db:create
+5. $ npm i yarn
 
-6. $ rake db:migrate
+6. $ rake db:create
 
-7. $ git commit -m postgres
+7. $ rake db:migrate
 
-8. $ rake db:seed
+8. $ git commit -m postgres
+
+9. $ rake db:seed
+
 
 Run Locally:
 
-9. RAILS_ENV=production rake db:create db:migrate db:seed
+10. RAILS_ENV=production rake db:create db:migrate db:seed
 
-10. rake secret
+11. rake secret
 
-11. export SECRET_KEY_BASE=output-of-rake-secret
+12. export SECRET_KEY_BASE=output-of-rake-secret
 
-12. rake assets:precompile
+13. rake assets:precompile
 
-13. RAILS_ENV=production rails s
+14. RAILS_ENV=production rails s
 
 Get it on Heroku: 
 
-9. $ ssh-keygen -t rsa
+10. $ ssh-keygen -t rsa
 
-10. $ nvm i v8
+11. $ nvm i v8
 
-11. $ npm install -g heroku
+12. $ npm install -g heroku
 
-12. $ heroku login
+13. $ heroku login
 
-13. $ heroku keys:add
+14. $ heroku keys:add
 
-14. $ git init
+15. $ git init
 
-15. $ git add .
+16. $ git add .
 
-16. $ git commit -m "first commit"
+17. $ git commit -m "first commit"
 
-17. $ heroku create
+18. $ heroku create
 
-18. $ git push heroku master
+19. $ git push heroku master
+
+-------------------------------------------------------------------
 
 Initializing Cucumber test database:
 1. Run after every change to database before testing:
    $ rake db:test:prepare
-
+   
+-------------------------------------------------------------------
 
 Problems with Yarn:
 1. Run update:
