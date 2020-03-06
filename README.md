@@ -27,15 +27,15 @@ How to run:
 
 Run Locally:
 
-10. RAILS_ENV=production rake db:create db:migrate db:seed
+10. $ RAILS_ENV=production rake db:create db:migrate db:seed
 
-11. rake secret
+11. $ rake secret
 
-12. export SECRET_KEY_BASE=output-of-rake-secret
+12. $ export SECRET_KEY_BASE=output-of-rake-secret
 
-13. rake assets:precompile
+13. $ rake assets:precompile
 
-14. RAILS_ENV=production rails s
+14. $ RAILS_ENV=production rails s
 
 Get it on Heroku: 
 
