@@ -1,0 +1,55 @@
+%html
+  %head
+    :css
+        ul
+        {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #333;
+        }
+        
+        li.navBar
+        {
+            float: left;
+        }
+        
+        li.navBarActive
+        {
+            float: left;
+            background-color: #8d42f5;
+        }
+        
+        li a
+        {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+        
+        li a:hover:not(.active)
+        {
+            background-color: #4287f5;
+        }
+      
+        
+  %body
+    %ul
+      %li.navBarActive
+        = link_to "Home", {:style=>'color:#FFFFFF;', :class => "css_class"}
+
+      %li.navBar{:style => "float:right"}
+        = link_to "Student Access", student_path
+        
+      %li.navBar{:style => "float:right"}
+        = link_to "Professor Access", professor_path
+        
+    %h1 Welcome to Peer Review Assigner
+    %h2 How to use our site:
+    %ol
+      %li Select Student Access or Professor Access from the top right corner
+      %li Enter your credentials
+      %li Done!
