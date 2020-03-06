@@ -53,3 +53,25 @@ Get it on Heroku:
 17. $ heroku create
 
 18. $ git push heroku master
+
+Initializing Cucumber test database:
+1. Run after every change to database before testing:
+   $ rake db:test:prepare
+
+
+Problems with Yarn:
+1. Run update:
+   $ sudo apt-get update
+
+2. Install apt-transport-https:
+   $ sudo apt-get install apt-transport-https
+
+3. Configure the repository (from Yarn installation):
+   $ curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+   $ echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+
+4. Run update again and install Yarn:
+   $ sudo apt-get update && sudo apt-get install yarn
+
+5. Then run:
+   $ yarn install --check-files
