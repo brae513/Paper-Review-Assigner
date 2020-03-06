@@ -1,5 +1,7 @@
 # README
 
+Link: https://infinite-harbor-68851.herokuapp.com/welcome/index
+
 How to run:
 
 1. $ git clone https://github.com/brae513/Paper-Review-Assigner
