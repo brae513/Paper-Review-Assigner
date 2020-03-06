@@ -1,24 +1,41 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+How to run:
 
-Things you may want to cover:
+1. $ git clone https://github.com/brae513/Paper-Review-Assigner
 
-* Ruby version
+2. Navigate to project folder: $ cd Peer-Review-Assigner
 
-* System dependencies
+3. $ sudo apt-get install libpq-dev
 
-* Configuration
+4. $ bundle install --without production
 
-* Database creation
+5. $ rake db:create
 
-* Database initialization
+6. $ rake db:migrate
 
-* How to run the test suite
+7. $ git commit -m postgres
 
-* Services (job queues, cache servers, search engines, etc.)
+8. $ rake db:seed
 
-* Deployment instructions
+Get it on Heroku: 
 
-* ...
+9. $ ssh-keygen -t rsa
+
+10. $ nvm i v8
+
+11. $ npm install -g heroku
+
+12. $ heroku login
+
+13. $ heroku keys:add
+
+14. $ git init
+
+15. $ git add .
+
+16. $ git commit -m "first commit"
+
+17. $ heroku create
+
+18. $ git push heroku master
