@@ -18,6 +18,18 @@ How to run:
 
 8. $ rake db:seed
 
+Run Locally:
+
+9. RAILS_ENV=production rake db:create db:migrate db:seed
+
+10. rake secret
+
+11. export SECRET_KEY_BASE=output-of-rake-secret
+
+12. rake assets:precompile
+
+13. RAILS_ENV=production rails s
+
 Get it on Heroku: 
 
 9. $ ssh-keygen -t rsa
