@@ -2,7 +2,7 @@
 
 Link: https://infinite-harbor-68851.herokuapp.com/welcome/index
 
-This is for Ubuntu on cloud9! C
+This is for Ubuntu on cloud9!
 
 How to run:
 
