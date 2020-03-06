@@ -2,11 +2,13 @@
 
 Link: https://infinite-harbor-68851.herokuapp.com/welcome/index
 
+This is for Ubuntu on cloud9! C
+
 How to run:
 
 1. $ git clone https://github.com/brae513/Paper-Review-Assigner
 
-2. Navigate to project folder: $ cd Peer-Review-Assigner
+2. Navigate to project folder: $ cd Peer-Review-Assigner/
 
 3. $ sudo apt-get install libpq-dev
 
