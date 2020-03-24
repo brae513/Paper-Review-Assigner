@@ -1,7 +1,11 @@
 %html
   %head
     :css
-        ul
+        * {
+        
+        }
+        
+        .nav-ul
         {
             list-style-type: none;
             margin: 0;
@@ -34,10 +38,21 @@
         {
             background-color: #4287f5;
         }
-      
+        
+        .landing-text {
+          text-align: center;
+        }
+        
+        .center-list {
+          display: inline-block;
+          margin-left: auto;
+          margin-right: auto;
+          text-align:left;
+          text-size
+        }
         
   %body
-    %ul
+    %ul.nav-ul
       %li.navBarActive
         = link_to "Home", {:style=>'color:#FFFFFF;', :class => "css_class"}
 
@@ -47,9 +62,11 @@
       %li.navBar{:style => "float:right"}
         = link_to "Professor Access", professor_path
         
+  %div.landing-text
     %h1 Welcome to Peer Review Assigner
     %h2 How to use our site:
-    %ol
-      %li Select Student Access or Professor Access from the top right corner
-      %li Enter your credentials
-      %li Done!
+    %div.center-list
+      %ol
+        %li Select Student Access or Professor Access from the top right corner
+        %li Enter your credentials
+        %li Done!
