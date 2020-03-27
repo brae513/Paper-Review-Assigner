@@ -14,7 +14,7 @@ How to run:
 
 4. $ bundle install --without production
 
-5. $ npm i yarn (((Go to the bottom of this readme if you have problems)))
+5. $ npm install --global yarn (((Go to the bottom of this readme if you have problems)))
 
 6. $ rake db:create
 
