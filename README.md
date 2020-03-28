@@ -1,6 +1,6 @@
 # README
 
-Link: https://fast-lake-32866.herokuapp.com/welcome/professor
+Link: https://fast-lake-32866.herokuapp.com
 
 This is for Ubuntu on cloud9!
 
