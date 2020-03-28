@@ -57,6 +57,10 @@ Get it on Heroku:
 
 18. $ git push heroku master
 
+*If you can run the app locally but have errors on heroku, remember:*
+
+$ heroku run rake db:migrate
+
 -------------------------------------------------------------------
 
 Initializing Cucumber test database:
