@@ -1,6 +1,6 @@
 # README
 
-Link: https://infinite-harbor-68851.herokuapp.com/welcome/index
+Link: https://fast-lake-32866.herokuapp.com/welcome/professor
 
 This is for Ubuntu on cloud9!
 
@@ -31,7 +31,7 @@ Run Locally:
 
 11. $ export SECRET_KEY_BASE=output-of-rake-secret
 
-12. $ rake assets:precompile
+12. $ rake assets:precompile (((It might look like it froze at 'sass-rails'. Just wait. It's slow.)))
 
 13. $ RAILS_ENV=production rails s
 
