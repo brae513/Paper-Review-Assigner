@@ -1,0 +1,69 @@
+%html
+  %head
+    :css
+        ul
+        {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #333;
+        }
+        
+        li.navBar
+        {
+            float: left;
+        }
+        
+        li.navBarActive
+        {
+            float: left;
+            background-color: #8d42f5;
+        }
+        
+        li a
+        {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+        
+        li a:hover:not(.active)
+        {
+            background-color: #4287f5;
+        }
+      
+        
+  %body
+    %ul
+      %li.navBarActive
+        = link_to "Home", {:style=>'color:#FFFFFF;', :class => "css_class"}
+
+      %li.navBar{:style => "float:right"}
+        = link_to "Student Access", students_path
+        
+      %li.navBar{:style => "float:right"}
+        = link_to "Professor Access", papers_path
+    %h2 All Students
+    
+    - if !@students.nil?
+      %table#students.table.table-striped.col-md-12
+        %thead
+          %tr
+            %th Name
+            %th Email
+            %th Classification
+        %tbody
+          - @students.each do |student|
+            %tr
+              %td= student.name
+              %td= student.email
+              %td= student.classification
+              %td= button_to 'Delete', student_path(student.id), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-primary'
+    
+    - else
+      %h3 No students added yet.
+        
+    = link_to 'Add new student', new_student_path
