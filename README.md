@@ -20,44 +20,42 @@ How to run:
 
 7. $ rake db:migrate
 
-8. $ git commit -m postgres
-
-9. $ rake db:seed
+8. $ rake db:seed
 
 
 Run Locally:
 
-10. $ RAILS_ENV=production rake db:create db:migrate db:seed
+9. $ RAILS_ENV=production rake db:create db:migrate db:seed
 
-11. $ rake secret
+10. $ rake secret
 
-12. $ export SECRET_KEY_BASE=output-of-rake-secret
+11. $ export SECRET_KEY_BASE=output-of-rake-secret
 
-13. $ rake assets:precompile
+12. $ rake assets:precompile
 
-14. $ RAILS_ENV=production rails s
+13. $ RAILS_ENV=production rails s
 
 Get it on Heroku: 
 
-10. $ ssh-keygen -t rsa
+9. $ ssh-keygen -t rsa
 
-11. $ nvm i v8
+10. $ nvm i v8
 
-12. $ npm install -g heroku
+11. $ npm install -g heroku
 
-13. $ heroku login
+12. $ heroku login
 
-14. $ heroku keys:add
+13. $ heroku keys:add
 
-15. $ git init
+14. $ git init
 
-16. $ git add .
+15. $ git add .
 
-17. $ git commit -m "first commit"
+16. $ git commit -m "first commit"
 
-18. $ heroku create
+17. $ heroku create
 
-19. $ git push heroku master
+18. $ git push heroku master
 
 -------------------------------------------------------------------
 
