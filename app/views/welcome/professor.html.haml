@@ -21,7 +21,7 @@
             background-color: #8d42f5;
         }
         
-        li a
+        li.navBar a
         {
             display: block;
             color: white;
@@ -30,11 +30,32 @@
             text-decoration: none;
         }
         
-        li a:hover:not(.active)
+        li.navBar a:hover:not(.active)
         {
             background-color: #4287f5;
         }
-      
+
+        li.navBarActive a
+        {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+        
+        li.navBarActive a:hover:not(.active)
+        {
+            background-color: #4287f5;
+        }    
+
+        li.loginlink
+        {
+            display: block;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
         
   %body
     %ul
@@ -46,3 +67,9 @@
         
       %li.navBarActive{:style => "float:right"}
         = link_to "Professor Access", {:style=>'color:#FFFFFF;', :class => "css_class"}
+        
+    %ul
+      %li.loginlink
+        = link_to "Register", new_user_registration_path
+      %li.loginlink
+        = link_to "Log In", new_user_session_path
