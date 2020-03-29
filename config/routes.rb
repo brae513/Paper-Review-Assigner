@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+<<<<<<< HEAD
     get 'students/index'
     get 'students/new'
     get 'students/show'
@@ -6,6 +7,9 @@ Rails.application.routes.draw do
     get 'papers/add'
     
     devise_for :users
+=======
+  devise_for :users
+>>>>>>> a1a5f7b2d172d5aad6dfed206883a8443e0dade4
     # get 'papers/index'
     # get 'papers/add'
     # The priority is based upon order of creation: first created -> highest priority.
