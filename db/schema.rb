@@ -12,7 +12,6 @@
 
 ActiveRecord::Schema.define(version: 2020_03_28_163009) do
 
-<<<<<<< HEAD
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -24,8 +23,6 @@ ActiveRecord::Schema.define(version: 2020_03_28_163009) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-=======
->>>>>>> a1a5f7b2d172d5aad6dfed206883a8443e0dade4
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
