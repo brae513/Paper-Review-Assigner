@@ -26,17 +26,6 @@ test:
   <<: *default
   database: db/test.sqlite3
 
-production:
-  host: ''
-  adapter: sqlite3
-  encoding: unicode
-  # For details on connection pooling, see Rails configuration guide
-  # https://guides.rubyonrails.org/configuring.html#database-pooling
-  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  database: db/production.sqlite3
-  username: ubuntu
-  password: <%= ENV['MYAPP_DATABASE_PASSWORD'] %>
-  #password: ruby
 
 production:
   <<: *default
