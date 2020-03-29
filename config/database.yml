@@ -28,13 +28,13 @@ test:
   
 production:
   host: ''
-  adapter: postgresql
+  adapter: sqlite3
   encoding: unicode
   # For details on connection pooling, see Rails configuration guide
   # https://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  database: myapp_production
+  database: db/production.sqlite3
   username: ubuntu
-  #password: <%= ENV['MYAPP_DATABASE_PASSWORD'] %>
-  password: ruby
-  #database: db/production.sqlite3
+  password: <%= ENV['MYAPP_DATABASE_PASSWORD'] %>
+  #password: ruby
+  #
