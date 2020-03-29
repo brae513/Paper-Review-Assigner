@@ -4,6 +4,10 @@ Rails.application.routes.draw do
     get 'students/show'
     get 'papers/index'
     get 'papers/add'
+    
+    devise_for :users
+    # get 'papers/index'
+    # get 'papers/add'
     # The priority is based upon order of creation: first created -> highest priority.
     # See how all your routes lay out with "rake routes".
     # You can have the root of your site routed with "root"
