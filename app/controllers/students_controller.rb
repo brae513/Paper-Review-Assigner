@@ -18,7 +18,7 @@ class StudentsController < ApplicationController
   def destroy
     @student = Student.find(params[:id])
     @student.destroy
-    flash[:notice] = "Movie '#{@student.name}' deleted."
+    flash[:notice] = "Student '#{@student.name}' deleted."
     redirect_to students_path
   end
   
