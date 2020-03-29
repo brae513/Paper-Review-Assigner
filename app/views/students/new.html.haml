@@ -34,13 +34,13 @@
   }
 %ul
   %li.navBarActive
-    = link_to "Home", {:style=>'color:#FFFFFF;', :class => "css_class"}
+    = link_to "Home", index_path
 
   %li.navBar{:style => "float:right"}
     = link_to "Student Access", students_path
         
   %li.navBar{:style => "float:right"}
-    = link_to "Professor Access", papers_path
+    = link_to "Professor Access", professor_path
 %h2 Add a student
 
 = form_tag students_path do
