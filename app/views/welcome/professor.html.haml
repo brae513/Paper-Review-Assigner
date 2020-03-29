@@ -73,17 +73,21 @@
         
         // Left column of page
         %div.col.left
+          %h2.text-center Papers
         
-          %table#papers.table.table-striped.col-md-12
-            %thead
-              %tr
-                %th Paper Title
-                %th More Info
-            %tbody
-              // - @papers.each do |paper|
-              //   %tr
-              //     %td= paper.title
-        
+          - if !@papers.nil?
+            %table#papers.table.table-striped.col-md-12
+              %thead
+                %tr
+                  %th Paper Title
+                  %th More Info
+              %tbody  
+              - @papers.each do |paper|
+                %tr
+                  %td= paper.title
+          - else
+            %h3 No papers added yet.
+                  
         // Right column of page 
         %div.col.right-col
           %div.col-lg-12
@@ -93,6 +97,7 @@
           %div.col-lg-12
             %h2#add-paper Add Paper
             = form_tag professor_path, id: "form_id" do
-              = label :title, 'Title'
-              = text_field :title, 'title'
-              = submit_tag 'Submit'
+              .form-group
+                = label :title, 'Title'
+                = text_field :title, 'title'
+                = submit_tag 'Submit'
