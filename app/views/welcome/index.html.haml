@@ -42,18 +42,18 @@
         = link_to "Home", {:style=>'color:#FFFFFF;', :class => "css_class"}
         
       -if signed_in?
-      %li.navBar{:style => "float:right"}
-        = link_to "Edit Registration", new_user_registration_path
-        
-      %li.navBar{:style => "float:right"}
-        = link_to "Log Out", destroy_use_session_path, :method => :delete
+        %li.navBar{:style => "float:right"}
+          = link_to "Edit Registration", new_user_registration_path
+          
+        %li.navBar{:style => "float:right"}
+          = link_to "Log Out", destroy_use_session_path, :method => :delete
       
       -else
-      %li.navBar{:style => "float:right"}
-        = link_to "Register", new_user_registration_path
-        
-      %li.navBar{:style => "float:right"}
-        = link_to "Log In", new_user_session_path
+        %li.navBar{:style => "float:right"}
+          = link_to "Register", new_user_registration_path
+          
+        %li.navBar{:style => "float:right"}
+          = link_to "Log In", new_user_session_path
         
   
     %h1 Welcome to Peer Review Assigner
