@@ -81,11 +81,13 @@ Common Not-Obvious Errors:
 
 1. Make sure yarn is up to date with $ yarn install --check-files
 
-2. Click the db folder and delete development.sqlite3, production.sqlite3, and db/test.sqlite3
+2. Click the db folder and delete db/development.sqlite3, db/production.sqlite3, and db/test.sqlite3
 
 3. Delete all temp cache with $ git rm tmp -r
 
-4. If this doesn't work, make sure your .rb files are up to date. (Check: schema.rb, seeds.rb, links in routes.rb)
+4. Now try deploying again from step 4 and make sure you $ heroku run rake db:migrate
 
-5. If all fails, click on the page that says: "We're sorry, but something went wrong."
+5. If this doesn't work, make sure your .rb files are up to date. (Check: schema.rb, seeds.rb, links in routes.rb)
+
+6. If all fails, click on the page that says: "We're sorry, but something went wrong."
    Type in $ heroku logs -t (((to check the logs and look up the error if there is one)))
