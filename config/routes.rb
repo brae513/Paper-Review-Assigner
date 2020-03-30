@@ -14,9 +14,7 @@ Rails.application.routes.draw do
     # You can have the root of your site routed with "root"
     
     get 'welcome/index', to: "welcome#index", as: "index"
-    #get 'welcome/student', to: "welcome#student", as: "student"
     get 'welcome/professor', to: "welcome#professor", as: "professor"
-    #get 'papers/index', to: "papers#index", as: "paper"
     root 'welcome#index'
 
     # Example of regular route:
