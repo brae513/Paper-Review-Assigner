@@ -64,14 +64,10 @@
         
       %li.navBar{:style => "float:right"}
         = link_to "Edit Registration", new_user_registration_path
-        
       %li.navBar{:style => "float:right"}
-        = link_to "Log Out", destroy_use_session_path, :method => :delete
+        = link_to "Log Out", destroy_user_session_path, :method => :delete
      
      
     %ul 
       %li.{:style => "float:right"}
         = link_to "Student Access", students_path
-        
-      %li.{:style => "float:right"}
-        = link_to "Professor Access", {:style=>'color:#FFFFFF;', :class => "css_class"}
