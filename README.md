@@ -8,15 +8,15 @@ How to run:
 
 1. $ git clone https://github.com/brae513/Paper-Review-Assigner
 
-2. Navigate to project folder: $ cd Peer-Review-Assigner/
+2. Navigate to project folder: $ cd Paper-Review-Assigner/
 
 3. $ sudo apt-get install libpq-dev
 
-4. $ bundle install --without production
+4. $ bundle install --without production (((might look like it froze. Just wait. It's slow.)))
 
-5. $ npm install --global yarn (((Go to the bottom of this readme if you have problems)))
+5. $ npm install --global yarn
 
-6. $ rake db:create
+6. $ rake db:create (((If you get an integrity fails error, do $ yarn install --check-files)))
 
 7. $ rake db:migrate
 
@@ -31,7 +31,7 @@ Run Locally:
 
 11. $ export SECRET_KEY_BASE=output-of-rake-secret
 
-12. $ rake assets:precompile (((It might look like it froze at 'sass-rails'. Just wait. It's slow.)))
+12. $ rake assets:precompile (((might look like it froze. Just wait. It's slow.)))
 
 13. $ RAILS_ENV=production rails s
 
@@ -67,21 +67,25 @@ Initializing Cucumber test database:
 1. Run after every change to database before testing:
    $ rake db:test:prepare
    
--------------------------------------------------------------------
+--------------------------------------------------------------------
 
-Problems with Yarn:
-1. Run update:
-   $ sudo apt-get update
+Common Not-Obvious Errors:
 
-2. Install apt-transport-https:
-   $ sudo apt-get install apt-transport-https
+*After changing files/pushing/merging, if you can run the app locally but get this message on Heroku:*
 
-3. Configure the repository (from Yarn installation):
-   $ curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
-   $ echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+"We're sorry, but something went wrong."
 
-4. Run update again and install Yarn:
-   $ sudo apt-get update && sudo apt-get install yarn
+*You most probably have a database issue (or an issue in routes.rb) so make sure you've done the db commands*
 
-5. Then run:
-   $ yarn install --check-files
+*To fix the database issue:*
+
+1. Make sure yarn is up to date with $ yarn install --check-files
+
+2. Click the db folder and delete development.sqlite3, production.sqlite3, and db/test.sqlite3
+
+3. Delete all temp cache with $ git rm tmp -r
+
+4. If this doesn't work, make sure your .rb files are up to date. (Check: schema.rb, seeds.rb, links in routes.rb)
+
+5. If all fails, click on the page that says: "We're sorry, but something went wrong."
+   Type in $ heroku logs -t (((to check the logs and look up the error if there is one)))
