@@ -38,9 +38,11 @@
         
   %body
     %ul
-      %li.navBarActive
-        = link_to "Home", index_path
-
+      %li.navBar
+        = link_to "Welcome", index_path
+      %li.navBar
+        = link_to "Main Menu", index_path
+        
       %li.navBar{:style => "float:right"}
         = link_to "Log Out", destroy_user_session_path, :method => :delete
         
