@@ -60,18 +60,18 @@
   %body
     %ul
       %li.navBar
-        = link_to "Home", index_path, {:style=>'color:#FFFFFF;', :class => "css_class"}
+        = link_to "Home", index_path
         
       %li.navBar{:style => "float:right"}
         = link_to "Edit Registration", new_user_registration_path
         
       %li.navBar{:style => "float:right"}
         = link_to "Log Out", destroy_use_session_path, :method => :delete
+     
+     
+    %ul 
+      %li.{:style => "float:right"}
+        = link_to "Student Access", students_path
         
-        
-    %ul
-      %li
-        = link_to "Student Table", students_path
-        
-      %li
-        = link_to "Paper Table", papers_path
+      %li.{:style => "float:right"}
+        = link_to "Professor Access", {:style=>'color:#FFFFFF;', :class => "css_class"}
