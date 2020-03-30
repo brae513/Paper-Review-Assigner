@@ -106,14 +106,14 @@
       
       - if signed_in?
         .dropdown
-        %button.dropbtn
-          Menu
-          %i.fa.fa-caret-down
-        .dropdown-content
-          %li.navBar
-            = link_to "Papers Table", professor_path
-          %li.navBar
-            = link_to "Students Table", students_path
+          %button.dropbtn
+            Menu
+            %i.fa.fa-caret-down
+              .dropdown-content
+                %li.navBar
+                  = link_to "Papers Table", professor_path
+                %li.navBar
+                  = link_to "Students Table", students_path
             
         %li.navBar{:style => "float:right"}
           = link_to "Log Out", destroy_user_session_path, :method => :delete
