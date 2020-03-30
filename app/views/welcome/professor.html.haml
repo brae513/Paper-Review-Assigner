@@ -63,14 +63,11 @@
         = link_to "Home", index_path
         
       %li.navBar{:style => "float:right"}
-        = link_to "Edit Registration", new_user_registration_path
-        
-      %li.navBar{:style => "float:right"}
         = link_to "Log Out", destroy_user_session_path, :method => :delete
      
      
     %ul 
-      %li
+      %li.linkToProfessorItems
         = link_to "Papers Table", papers_path
-      %li
+      %li.linkToProfessorItems
         = link_to "Students Table", students_path
