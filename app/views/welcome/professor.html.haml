@@ -103,7 +103,7 @@
   %body
     %ul
       .navBar
-      %li
+      %li.navBar
         = link_to "Home", index_path
         
       .dropdown
@@ -114,7 +114,7 @@
           %a{:href => "#"} Link 1
           %a{:href => "#"} Link 2
 
-      %li{:style => "float:right"}
+      %li.navBar{:style => "float:right"}
         = link_to "Log Out", destroy_user_session_path, :method => :delete
      
     %ul 
