@@ -42,10 +42,8 @@
         = link_to "Home", index_path
 
       %li.navBar{:style => "float:right"}
-        = link_to "Student Access", students_path
+        = link_to "Log Out", destroy_user_session_path, :method => :delete
         
-      %li.navBar{:style => "float:right"}
-        = link_to "Professor Access", professor_path
     %h2 All Students
     
     - if !@students.nil?

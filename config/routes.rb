@@ -15,6 +15,7 @@ Rails.application.routes.draw do
     
     get 'welcome/index', to: "welcome#index", as: "index"
     get 'welcome/professor', to: "welcome#professor", as: "professor"
+    get 'papers/index', to: "papers#index", as: "papers"
     root 'welcome#index'
 
     # Example of regular route:
