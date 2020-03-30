@@ -49,7 +49,7 @@
             background-color: #4287f5;
         }    
 
-        li.loginlink
+        li.linkToProfessorItems
         {
             display: block;
             text-align: center;
@@ -64,10 +64,13 @@
         
       %li.navBar{:style => "float:right"}
         = link_to "Edit Registration", new_user_registration_path
+        
       %li.navBar{:style => "float:right"}
         = link_to "Log Out", destroy_user_session_path, :method => :delete
      
      
     %ul 
-      %li.{:style => "float:right"}
-        = link_to "Student Access", students_path
+      %li
+        = link_to "Papers Table", papers_path
+      %li
+        = link_to "Students Table", students_path
