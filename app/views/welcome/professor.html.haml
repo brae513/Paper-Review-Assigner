@@ -107,7 +107,16 @@
         
       %li.navBar{:style => "float:right"}
         = link_to "Log Out", destroy_user_session_path, :method => :delete
-     
+        
+      .dropdown
+      %button.dropbtn
+        Menu
+        %i.fa.fa-caret-down
+      .dropdown-content
+        %li
+          = link_to "Papers Table", professor_path
+        %li
+          = link_to "Students Table", students_path
      
     %ul 
       %li.linkToProfessorItems
@@ -115,16 +124,3 @@
       %li.linkToProfessorItems
         = link_to "Students Table", students_path
         
-
-.navbar
-  %a{:href => "#home"} Home
-  %a{:href => "#news"} News
-  .dropdown
-    %button.dropbtn
-      Menu
-      %i.fa.fa-caret-down
-    .dropdown-content
-      %li
-        = link_to "Papers Table", professor_path
-      %li
-        = link_to "Students Table", students_path
