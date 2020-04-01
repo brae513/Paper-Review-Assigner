@@ -5,7 +5,7 @@ class PapersController < ApplicationController
   end
   
   def index
-    @papers = Paper.order(:title)
+    @papers = Paper.all
   end
   
   def create
