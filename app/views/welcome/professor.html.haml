@@ -44,6 +44,11 @@
           text-decoration: none;
         }
         
+        li.navBarActive a:hover:not(.active)
+        {
+          background-color: #4287f5;
+        }    
+
         li.linkToProfessorItems
         {
           display: block;
@@ -126,20 +131,17 @@
             = link_to "Students Table", students_path
 
       %li.navBar{:style => "float:right"}
-        = link_to "Student Access", student_path
-        
-      %li.navBarActive{:style => "float:right"}
-        = link_to "Professor Access", {:style=>'color:#FFFFFF;', :class => "css_class"}
-    
+        = link_to "Log Out", destroy_user_session_path, :method => :delete
+
+    // Page content container
     %div.container-fluid
       %div.row
         %h1.col.text-center.font-weight-bold Professor Access
       %div.row
-        
+      
         // Left column of page
         %div.col.left
           %h2.text-center Papers
-        
           - if !@papers.nil?
             %table#papers.table.table-striped.col-md-12
               %thead
@@ -152,7 +154,7 @@
                   %td= paper.title
           - else
             %h3 No papers added yet.
-                  
+              
         // Right column of page 
         %div.col.right-col
           %div.col-lg-12
@@ -165,4 +167,4 @@
               .form-group
                 = label :title, 'Title'
                 = text_field :title, 'title'
-                = submit_tag 'Submit'
+                = submit_tag 'Submit'  
