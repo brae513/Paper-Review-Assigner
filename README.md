@@ -1,6 +1,8 @@
 # README
 
-Link: https://infinite-harbor-68851.herokuapp.com/welcome/index
+Iteration 2 Link: https://shrouded-beach-66812.herokuapp.com/
+
+Current Link: https://thawing-wildwood-26495.herokuapp.com/
 
 This is for Ubuntu on cloud9!
 
@@ -8,56 +10,58 @@ How to run:
 
 1. $ git clone https://github.com/brae513/Paper-Review-Assigner
 
-2. Navigate to project folder: $ cd Peer-Review-Assigner/
+2. Navigate to project folder: $ cd Paper-Review-Assigner/
 
 3. $ sudo apt-get install libpq-dev
 
-4. $ bundle install --without production
+4. $ bundle install --without production (((might look like it froze. Just wait. It's slow.)))
 
-5. $ npm i yarn (((Go to the bottom of this readme if you have problems)))
+5. $ npm install --global yarn
 
-6. $ rake db:create
+6. $ rake db:create (((If you get an integrity fails error, do $ yarn install --check-files)))
 
 7. $ rake db:migrate
 
-8. $ git commit -m postgres
-
-9. $ rake db:seed
+8. $ rake db:seed
 
 
 Run Locally:
 
-10. $ RAILS_ENV=production rake db:create db:migrate db:seed
+9. $ RAILS_ENV=production rake db:create db:migrate db:seed
 
-11. $ rake secret
+10. $ rake secret
 
-12. $ export SECRET_KEY_BASE=output-of-rake-secret
+11. $ export SECRET_KEY_BASE=output-of-rake-secret
 
-13. $ rake assets:precompile
+12. $ rake assets:precompile (((might look like it froze. Just wait. It's slow.)))
 
-14. $ RAILS_ENV=production rails s
+13. $ RAILS_ENV=production rails s
 
 Get it on Heroku: 
 
-10. $ ssh-keygen -t rsa
+9. $ ssh-keygen -t rsa
 
-11. $ nvm i v8
+10. $ nvm i v8
 
-12. $ npm install -g heroku
+11. $ npm install -g heroku
 
-13. $ heroku login
+12. $ heroku login
 
-14. $ heroku keys:add
+13. $ heroku keys:add
 
-15. $ git init
+14. $ git init
 
-16. $ git add .
+15. $ git add .
 
-17. $ git commit -m "first commit"
+16. $ git commit -m "first commit"
 
-18. $ heroku create
+17. $ heroku create
 
-19. $ git push heroku master
+18. $ git push heroku master
+
+*If you can run the app locally but have errors on heroku, remember:*
+
+$ heroku run rake db:migrate
 
 -------------------------------------------------------------------
 
@@ -65,21 +69,27 @@ Initializing Cucumber test database:
 1. Run after every change to database before testing:
    $ rake db:test:prepare
    
--------------------------------------------------------------------
+--------------------------------------------------------------------
 
-Problems with Yarn:
-1. Run update:
-   $ sudo apt-get update
+Common Not-Obvious Errors:
 
-2. Install apt-transport-https:
-   $ sudo apt-get install apt-transport-https
+*After changing files/pushing/merging, if you can run the app locally but get this message on Heroku:*
 
-3. Configure the repository (from Yarn installation):
-   $ curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
-   $ echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+"We're sorry, but something went wrong."
 
-4. Run update again and install Yarn:
-   $ sudo apt-get update && sudo apt-get install yarn
+*You most probably have a database issue (or an issue in routes.rb) so make sure you've done the db commands*
 
-5. Then run:
-   $ yarn install --check-files
+*To fix the database issue:*
+
+1. Make sure yarn is up to date with $ yarn install --check-files
+
+2. Click the db folder and delete db/development.sqlite3, db/production.sqlite3, and db/test.sqlite3
+
+3. Delete all temp cache with $ git rm tmp -r
+
+4. Now try deploying again from step 4 and make sure you $ heroku run rake db:migrate
+
+5. If this doesn't work, make sure your .rb files are up to date. (Check: schema.rb, seeds.rb, links in routes.rb)
+
+6. If all fails, click on the page that says: "We're sorry, but something went wrong."
+   Type in $ heroku logs -t (((to check the logs and look up the error if there is one)))

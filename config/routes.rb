@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+    get 'students/index'
+    get 'students/new'
+    get 'students/show'
+    get 'papers/index'
+    get 'papers/add'
+    
+    devise_for :users
+
     # get 'papers/index'
     # get 'papers/add'
     # The priority is based upon order of creation: first created -> highest priority.
@@ -6,8 +14,8 @@ Rails.application.routes.draw do
     # You can have the root of your site routed with "root"
     
     get 'welcome/index', to: "welcome#index", as: "index"
-    get 'welcome/student', to: "welcome#student", as: "student"
     get 'welcome/professor', to: "welcome#professor", as: "professor"
+    get 'papers/index', to: "papers#index", as: "papers"
     root 'welcome#index'
 
     # Example of regular route:
@@ -19,7 +27,8 @@ Rails.application.routes.draw do
     # Example resource route (maps HTTP verbs to controller actions automatically):
     # resources :products
 
-    # resources :papers
+    resources :students
+    resources :papers
   # Example resource route with options:
   #   resources :products do
   #     member do

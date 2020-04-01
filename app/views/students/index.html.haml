@@ -1,0 +1,118 @@
+%html
+  %head
+    :css
+        ul
+        {
+          list-style-type: none;
+          margin: 0;
+          padding: 0;
+          overflow: hidden;
+          background-color: #333;
+        }
+        
+        li.navBar
+        {
+          float: left;
+        }
+        
+        li.navBarActive
+        {
+          float: left;
+          background-color: #8d42f5;
+        }
+        
+        li a
+        {
+          display: block;
+          color: white;
+          text-align: center;
+          padding: 14px 16px;
+          text-decoration: none;
+        }
+        
+        li a:hover:not(.active)
+        {
+          background-color: #4287f5;
+        }
+      
+        .dropdown
+        {
+          float: left;
+          overflow: hidden;
+        }
+        .dropdown .dropbtn 
+        {
+          border: none;
+          outline: none;
+          color: green;
+          text-align: center;
+          padding: 14px 16px;
+          text-decoration: none;
+        }
+        .dropdown-content 
+        {
+          display: none;
+          position: absolute;
+          background-color: green;
+          min-width: 160px;
+          box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+          z-index: 1;
+        }
+        .dropdown-content a 
+        {
+          float: none;
+          color: black;
+          padding: 12px 16px;
+          text-decoration: none;
+          display: block;
+          text-align: left;
+        }
+        .dropdown-content a:hover 
+        {
+          background-color: #ddd;
+        }
+        .dropdown:hover .dropdown-content 
+        {
+          display: block;
+        }
+        
+  %body
+    %ul
+      .navBar
+      %li.navBar
+        = link_to "Home", index_path
+        
+      .dropdown
+        %button.dropbtn
+          Menu
+          %i.fa.fa-caret-down
+        .dropdown-content
+          %li.navBar
+            = link_to "Papers Table", professor_path
+          %li.navBar
+            = link_to "Students Table", students_path
+        
+      %li.navBar{:style => "float:right"}
+        = link_to "Log Out", destroy_user_session_path, :method => :delete
+        
+    %h2 All Students
+    
+    - if !@students.nil?
+      %table#students.table.table-striped.col-md-12
+        %thead
+          %tr
+            %th Name
+            %th Email
+            %th Classification
+        %tbody
+          - @students.each do |student|
+            %tr
+              %td= student.name
+              %td= student.email
+              %td= student.classification
+              %td= button_to 'Delete', student_path(student.id), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-primary'
+    
+    - else
+      %h3 No students added yet.
+        
+    = link_to 'Add new student', new_student_path
