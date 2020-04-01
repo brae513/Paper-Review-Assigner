@@ -97,8 +97,19 @@
         {
           display: block;
         }
-      
         
+        .landing-text {
+          text-align: center;
+        }
+        
+        .center-list {
+          display: inline-block;
+          margin-left: auto;
+          margin-right: auto;
+          text-align:left;
+          text-size
+        }        
+      
   %body
     %ul
       %li.navBarActive
@@ -125,9 +136,11 @@
           = link_to "Log In", new_user_session_path
         
   
-    %h1 Welcome to Peer Review Assigner
+  %div.landing-text
+    %h1.font-weight-bold Welcome to Peer Review Assigner
     %h2 How to use our site:
-    %ol
-      %li Select Student Access or Professor Access from the top right corner
-      %li Enter your credentials
-      %li Done!
+    %div.center-list
+      %ol
+        %li Select Student Access or Professor Access from the top right corner
+        %li Enter your credentials
+        %li Done!
