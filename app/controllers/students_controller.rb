@@ -1,7 +1,7 @@
 class StudentsController < ApplicationController
   
   def student_params
-    params.require(:student).permit(:name,:email,:classification)
+    params.require(:student).permit(:name,:email,:classification, :paper_history)
   end
   
   def index
@@ -10,6 +10,7 @@ class StudentsController < ApplicationController
   
   def create
     @student = Student.create!(student_params)
+    puts student_params
     flash[:notice] = "#{@student.name} was successfully created."
     @student.save
     redirect_to students_path
@@ -27,5 +28,10 @@ class StudentsController < ApplicationController
   end
   
   def new
+  end
+  
+  def class_choice
+    #returns an array of choices that will be used for the dropdown menu for editing students
+    #why are student classifications a string instead of any other kind of class...
   end
 end
