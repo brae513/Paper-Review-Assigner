@@ -27,6 +27,18 @@ class StudentsController < ApplicationController
     @student = Student.find(params[:id])
   end
   
+  def edit
+    @student = Student.find(params[:id])
+    @senior = @student.classification.eql?("Senior")
+  end
+  
+  def update 
+    @student = Student.find params[:id]
+    @student.update_attributes!(student_params)
+    flash[:notice] = "#{@student.name} was successfully updated."
+    redirect_to students_path
+  end
+  
   def new
   end
   

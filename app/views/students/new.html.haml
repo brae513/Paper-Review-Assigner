@@ -52,13 +52,13 @@
   = text_field :student, 'email'
   
   = label :student, :paper_history, "Previous paper amount"
-  = number_field :student, "paper_history"
+  = number_field :student, "paper_history", :value => 0
   
   
   %p Classification:
-  = radio_button :student, :classification, 'Senior'
+  = radio_button :student, :classification, 'Junior', :checked => true
   Senior
-  = radio_button :student, :classification, 'Junior'
+  = radio_button :student, :classification, 'Senior'
   Junior
       
   = submit_tag 'Add student', :class => 'btn btn-primary'
