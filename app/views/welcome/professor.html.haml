@@ -152,13 +152,13 @@
         // Right column of page 
         %div.col.right-col
           %div.col-lg-12
-            %button.btn.btn-primary.btn-large.btn-block Assign Papers
-          %div.col-lg-12
-            %button.btn.btn-primary.btn-large.btn-block Alert Students
-          %div.col-lg-12
             %h2#add-paper Add Paper
             = form_tag professor_path, id: "form_id" do
               .form-group
                 = label :title, 'Title'
                 = text_field :title, 'title'
-                = submit_tag 'Submit'  
+                = submit_tag 'Submit'
+          %div.col-lg-12
+            %button.btn.btn-primary.btn-large.btn-block Alert Students
+          %div.col-lg-12
+            %button.btn.btn-primary.btn-large.btn-block Assign Papers

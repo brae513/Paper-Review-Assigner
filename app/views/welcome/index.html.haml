@@ -57,58 +57,18 @@
           text-decoration: none;
         }
         
-        .dropdown
-        {
-          float: left;
-          overflow: hidden;
-        }
-        .dropdown .dropbtn 
-        {
-          border: none;
-          outline: none;
-          color: green;
-          text-align: center;
-          padding: 14px 16px;
-          text-decoration: none;
-        }
-        .dropdown-content 
-        {
-          display: none;
-          position: absolute;
-          background-color: green;
-          min-width: 160px;
-          box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-          z-index: 1;
-        }
-        .dropdown-content a 
-        {
-          float: none;
-          color: black;
-          padding: 12px 16px;
-          text-decoration: none;
-          display: block;
-          text-align: left;
-        }
-        .dropdown-content a:hover 
-        {
-          background-color: #ddd;
-        }
-        .dropdown:hover .dropdown-content 
-        {
-          display: block;
-        }
-        
-        .landing-text {
-          text-align: center;
-        }
-        
         .center-list {
           display: inline-block;
           margin-left: auto;
           margin-right: auto;
           text-align:left;
           text-size
-        }        
+        }
+        
+        * {
+          margin: 0px;
+          padding: 0px;
+        }
       
   %body
     %ul
@@ -130,12 +90,13 @@
         %li.navBar{:style => "float:right"}
           = link_to "Log In", new_user_session_path
         
-  
-  %div.landing-text
-    %h1.font-weight-bold Welcome to Peer Review Assigner
-    %h2 How to use our site:
-    %div.center-list
-      %ol
-        %li Select Student Access or Professor Access from the top right corner
-        %li Enter your credentials
-        %li Done!
+    .container-fluid
+      .row
+        .col-12.text-center
+          %h1.font-weight-bold Welcome to Peer Review Assigner
+          %h2 How to use our site:
+          .center-list
+            %ol
+              %li Select Student Access or Professor Access from the top right corner
+              %li Enter your credentials
+              %li Done!
