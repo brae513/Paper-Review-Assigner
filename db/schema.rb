@@ -19,6 +19,15 @@ ActiveRecord::Schema.define(version: 2020_04_03_005709) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "paper_history", default: 0
+	t.string "professor_email"
+  end
+
+  create_table "papers", force: :cascade do |t|
+    t.string "title"
+    t.string "paper_id"
+    t.string "description"
+    t.text "students_assigned"
+    t.string "professor_email"
   end
 
   create_table "users", force: :cascade do |t|
