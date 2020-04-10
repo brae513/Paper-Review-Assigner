@@ -1,61 +1,69 @@
-:css
-  ul
-  {
-      list-style-type: none;
-      margin: 0;
-      padding: 0;
-      overflow: hidden;
-      background-color: #333;
-  }
+%html
+  %head
+    :css
+        ul
+        {
+          list-style-type: none;
+          margin: 0;
+          padding: 0;
+          overflow: hidden;
+          background-color: #333;
+        }
+        
+        li.navBar
+        {
+          float: left;
+        }
+        
+        li.navBarActive
+        {
+          float: left;
+          background-color: #8d42f5;
+        }
+        
+        li a
+        {
+          display: block;
+          color: white;
+          text-align: center;
+          padding: 14px 16px;
+          text-decoration: none;
+        }
+        
+        li a:hover:not(.active)
+        {
+          background-color: #4287f5;
+        }
+  %body
+    %ul
+      .navBar
+      %li.navBar
+        = link_to "Home", index_path
+      %li.navBar
+        = link_to "Overview", professor_path
+      %li.navBar
+        = link_to "Papers", papers_path
+      %li.navBar
+        = link_to "Students", students_path
+        
+      %li.navBar{:style => "float:right"}
+        = link_to "Log Out", destroy_user_session_path, :method => :delete
     
-  li.navBar
-  {
-      float: left;
-  }
+    %h2 Add a student
     
-  li.navBarActive
-  {
-      float: left;
-      background-color: #8d42f5;
-  }
-        
-  li a
-  {
-      display: block;
-      color: white;
-      text-align: center;
-      padding: 14px 16px;
-      text-decoration: none;
-  }
-        
-  li a:hover:not(.active)
-  {
-      background-color: #4287f5;
-  }
-%ul
-  %li.navBarActive
-    = link_to "Home", index_path
-
-  %li.navBar{:style => "float:right"}
-    = link_to "Student Access", students_path
-        
-  %li.navBar{:style => "float:right"}
-    = link_to "Professor Access", professor_path
-%h2 Add a student
-
-= form_tag students_path do
-
-  = label :student, :name, 'Name'
-  = text_field :student, 'name'
-  
-  = label :student, :email, 'Email'
-  = text_field :student, 'email'
-  
-  %p Classification:
-  = radio_button :student, :classification, 'Senior'
-  Senior
-  = radio_button :student, :classification, 'Junior'
-  Junior
+    = form_tag students_path do
+    
+      = label :student, :name, 'Name'
+      = text_field :student, 'name'
       
-  = submit_tag 'Add student', :class => 'btn btn-primary'
+      = label :student, :email, 'Email'
+      = text_field :student, 'email'
+      
+      %p Classification:
+      = radio_button :student, :classification, 'Senior'
+      Senior
+      = radio_button :student, :classification, 'Junior'
+      Junior
+          
+      = submit_tag 'Add student', :class => 'btn btn-primary'
   

@@ -41,11 +41,11 @@
       %li.navBar
         = link_to "Home", index_path
       %li.navBar
+        = link_to "Overview", professor_path
+      %li.navBar
         = link_to "Papers", papers_path
       %li.navBar
         = link_to "Students", students_path
-      %li.navBar
-        = link_to "Professors", professor_path
         
       %li.navBar{:style => "float:right"}
         = link_to "Log Out", destroy_user_session_path, :method => :delete

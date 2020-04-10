@@ -1,54 +1,60 @@
-:css
-  ul
-  {
-      list-style-type: none;
-      margin: 0;
-      padding: 0;
-      overflow: hidden;
-      background-color: #333;
-  }
-    
-  li.navBar
-  {
-      float: left;
-  }
-    
-  li.navBarActive
-  {
-      float: left;
-      background-color: #8d42f5;
-  }
+%html
+  %head
+    :css
+        ul
+        {
+          list-style-type: none;
+          margin: 0;
+          padding: 0;
+          overflow: hidden;
+          background-color: #333;
+        }
         
-  li a
-  {
-      display: block;
-      color: white;
-      text-align: center;
-      padding: 14px 16px;
-      text-decoration: none;
-  }
+        li.navBar
+        {
+          float: left;
+        }
         
-  li a:hover:not(.active)
-  {
-      background-color: #4287f5;
-  }
-  
-%ul
-  %li.navBarActive
-    = link_to "Home", index_path
-
-  %li.navBar{:style => "float:right"}
-    = link_to "Student Access", students_path
+        li.navBarActive
+        {
+          float: left;
+          background-color: #8d42f5;
+        }
         
-  %li.navBar{:style => "float:right"}
-    = link_to "Professor Access", professor_path
-    
-%h2 Create New Paper
-= form_tag papers_path do
-  = label :paper, :title, 'Title'
-  = text_field :paper, 'title'
-  
-  = label :paper, :paper_id, "Paper ID"
-  = text_field :paper, 'paper_id'
-              
-  = submit_tag 'Add Paper', :class => 'btn btn-primary'
+        li a
+        {
+          display: block;
+          color: white;
+          text-align: center;
+          padding: 14px 16px;
+          text-decoration: none;
+        }
+        
+        li a:hover:not(.active)
+        {
+          background-color: #4287f5;
+        }
+  %body
+    %ul
+      .navBar
+      %li.navBar
+        = link_to "Home", index_path
+      %li.navBar
+        = link_to "Overview", professor_path
+      %li.navBar
+        = link_to "Papers", papers_path
+      %li.navBar
+        = link_to "Students", students_path
+        
+      %li.navBar{:style => "float:right"}
+        = link_to "Log Out", destroy_user_session_path, :method => :delete
+        
+    %h2 Create New Paper
+    = form_tag papers_path do
+      = label :paper, :title, 'Title'
+      = text_field :paper, 'title'
+      
+      = label :paper, :paper_id, "Paper ID"
+      = text_field :paper, 'paper_id'
+                  
+      = submit_tag 'Add Paper', :class => 'btn btn-primary'
