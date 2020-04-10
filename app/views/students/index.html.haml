@@ -69,10 +69,8 @@
               %td= student.paper_history
               %td= button_to 'Edit', edit_student_path(student), :method => :get, :class => 'btn btn-primary'
               %td= button_to 'Delete', student_path(student), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-primary'
+        
     - else
       %h3 No students added yet.
-        
-        - else
-          %h3 No students added yet.
             
-        = link_to 'Add new student', new_student_path
+    = link_to 'Add new student', new_student_path

@@ -4,8 +4,8 @@ class CreateStudents < ActiveRecord::Migration[6.0]
       t.string :name
       t.string :email
       t.string :classification
+      t.string :paper_history
       
-      t.string :professor_email
       t.timestamps
     end
   end
