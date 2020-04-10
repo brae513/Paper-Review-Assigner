@@ -1,4 +1,3 @@
-class Paper < ActiveRecord::Base
-
-    
+class Paper < ApplicationRecord
+    serialize :students_assigned, Array
 end
