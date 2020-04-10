@@ -2,9 +2,13 @@
 
 Iteration 2 Link: https://shrouded-beach-66812.herokuapp.com/
 
-Current Link 3/30/2020: https://thawing-wildwood-26495.herokuapp.com/
-
 Current Link 4/2/2020: https://enigmatic-crag-69698.herokuapp.com/
+
+Current Link 4/10/2020: https://stormy-sands-43449.herokuapp.com/
+
+REMINDER:: YOU **MUST** TRY RUNNING ON HEROKU BEFORE PUSHING TO MASTER.
+
+The app may work locally but not on Heroku. 
 
 This is for Ubuntu on cloud9!
 
