@@ -1,16 +1,71 @@
--#  This file is app/views/papers/index.html.haml
-%h2 All Papers
-
-- if !@students.nil?
-  %table#papers.table.table-striped.col-md-12
-    %thead
-      %tr
-        %th Title
-        %th More Info
-    %tbody
-      - @papers.each do |paper|
-        %tr
-          %td= paper.title
-          %td TODO
-
-= link_to 'Add new paper', new_paper_path
+%html
+  %head
+    :css
+        ul
+        {
+          list-style-type: none;
+          margin: 0;
+          padding: 0;
+          overflow: hidden;
+          background-color: #333;
+        }
+        
+        li.navBar
+        {
+          float: left;
+        }
+        
+        li.navBarActive
+        {
+          float: left;
+          background-color: #8d42f5;
+        }
+        
+        li a
+        {
+          display: block;
+          color: white;
+          text-align: center;
+          padding: 14px 16px;
+          text-decoration: none;
+        }
+        
+        li a:hover:not(.active)
+        {
+          background-color: #4287f5;
+        }
+        
+  %body
+    %ul
+      .navBar
+      %li.navBar
+        = link_to "Home", index_path
+      %li.navBar
+        = link_to "Papers", papers_path
+      %li.navBar
+        = link_to "Students", students_path
+      %li.navBar
+        = link_to "Professors", professor_path
+        
+      %li.navBar{:style => "float:right"}
+        = link_to "Log Out", destroy_user_session_path, :method => :delete
+        
+    %h2 All Papers
+    
+    - if !@papers.nil?
+      %table#papers.table.table-striped.col-md-12
+        %thead
+          %tr
+            %th Paper Title
+            %th Paper Id
+        %tbody
+          - @papers.each do |paper|
+            %tr
+              %td= paper.title
+              %td= paper.paper_id
+              // %td= button_to 'Delete', paper_path(paper.id), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-primary'
+    
+    - else
+      %h3 No papers added yet.
+        
+    = link_to 'Add new paper', new_paper_path

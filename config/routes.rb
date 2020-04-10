@@ -1,21 +1,19 @@
 Rails.application.routes.draw do
-    get 'students/index'
-    get 'students/new'
-    get 'students/show'
-    get 'papers/index'
-    get 'papers/add'
+    # get 'students/index'
+    # get 'students/new'
+    # get 'students/show'
+    # get 'papers/index'
+    # get 'papers/new'
     
     devise_for :users
 
-    # get 'papers/index'
-    # get 'papers/add'
     # The priority is based upon order of creation: first created -> highest priority.
     # See how all your routes lay out with "rake routes".
     # You can have the root of your site routed with "root"
     
     get 'welcome/index', to: "welcome#index", as: "index"
     get 'welcome/professor', to: "welcome#professor", as: "professor"
-    get 'papers/index', to: "papers#index", as: "papers"
+    # get 'papers/index', to: "papers#index", as: "papers"
     root 'welcome#index'
 
     # Example of regular route:

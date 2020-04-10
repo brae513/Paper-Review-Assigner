@@ -7,3 +7,4 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 students = Student.create([{name:'bob', email: 'test@sote.com', classification: 'senior'}])
+papers = Paper.create([{title:'Test: first edition', paper_id: 123}])
