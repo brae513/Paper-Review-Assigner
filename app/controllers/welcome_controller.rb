@@ -2,9 +2,8 @@ class WelcomeController < ApplicationController
     def index
     end
     
-    def student
-    end
-    
     def professor
+        @papers = Paper.all
+        @students = Student.all
     end
 end

@@ -120,7 +120,9 @@
       %li.navBar
         = link_to "Home", index_path
       %li.navBar
-        = link_to "Papers", professor_path
+        = link_to "Overview", professor_path
+      %li.navBar
+        = link_to "Papers", papers_path
       %li.navBar
         = link_to "Students", students_path
 
@@ -132,33 +134,22 @@
       %div.row
         %h1.col.text-center.font-weight-bold Professor Access
       %div.row
-      
         // Left column of page
-        %div.col.left
-          %h2.text-center Papers
-          - if !@papers.nil?
-            %table#papers.table.table-striped.col-md-12
-              %thead
-                %tr
-                  %th Paper Title
-                  %th More Info
-              %tbody  
-              - @papers.each do |paper|
-                %tr
-                  %td= paper.title
-          - else
-            %h3 No papers added yet.
-              
+      - if !@papers.nil?
+        %table#papers.table.table-striped.col-md-12
+          %thead
+            %tr
+              %th Title
+              %th Students Assigned
+          %tbody
+            - @papers.each do |paper|
+              %tr
+                %td= paper.title
+                %td= paper.students_assigned
+
         // Right column of page 
-        %div.col.right-col
-          %div.col-lg-12
-            %h2#add-paper Add Paper
-            = form_tag professor_path, id: "form_id" do
-              .form-group
-                = label :title, 'Title'
-                = text_field :title, 'title'
-                = submit_tag 'Submit'
-          %div.col-lg-12
-            %button.btn.btn-primary.btn-large.btn-block Alert Students
-          %div.col-lg-12
-            %button.btn.btn-primary.btn-large.btn-block Assign Papers
+        //%div.col.right-col
+        //  %div.col-sm-auto
+        //    %button.btn.btn-primary.btn-large.btn-block Assign Papers
+        //  %div.col-sm-auto
+        //    %button.btn.btn-primary.btn-large.btn-block Alert Students
