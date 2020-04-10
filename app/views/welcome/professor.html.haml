@@ -72,6 +72,10 @@
         #form_id {
           text-align: center;
         }
+        button {
+          height: 4em;
+          width: 40em;
+        }
 
   %body
     %ul
@@ -89,17 +93,17 @@
         = link_to "Log Out", destroy_user_session_path, :method => :delete
 
     // Page content container
-    %div.container-fluid
+    %div.container
       %div.row
         %h1.col.text-center.font-weight-bold Professor Access
-
-        %div.col-lg-12
-          %h2#add-paper Add Paper
-          = link_to 'Add new paper', new_paper_path
-        %div.col-lg-12
-          %button.btn.btn-primary.btn-large.btn-block Alert Students
-        %div.col-lg-12
-          %button.btn.btn-primary.btn-large.btn-block Assign Papers
+        
+      %div.row
+        %div.col-lg-12.text-center
+          %button.btn.btn-primary.btn-large Alert Students
+          
+      %div.row
+        %div.col-lg-12.text-center
+          %button.btn.btn-primary.btn-large Assign Papers
             
       // %div.row
       

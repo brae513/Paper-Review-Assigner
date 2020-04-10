@@ -15,6 +15,13 @@ class PapersController < ApplicationController
     redirect_to papers_path
   end
   
+  def destroy
+    @paper = Paper.find(params[:id])
+    @paper.destroy
+    flash[:notice] = "Paper '#{@paper.title}' deleted."
+    redirect_to papers_path
+  end
+  
   def new
   end
   

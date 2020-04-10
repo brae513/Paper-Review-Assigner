@@ -63,7 +63,7 @@
             %tr
               %td= paper.title
               %td= paper.paper_id
-              // %td= button_to 'Delete', paper_path(paper.id), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-primary'
+              %td= button_to 'Delete', paper_path(paper.id), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-primary'
     
     - else
       %h3 No papers added yet.
