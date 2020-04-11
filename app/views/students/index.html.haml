@@ -34,47 +34,6 @@
         {
           background-color: #4287f5;
         }
-      
-        .dropdown
-        {
-          float: left;
-          overflow: hidden;
-        }
-        .dropdown .dropbtn 
-        {
-          border: none;
-          outline: none;
-          color: green;
-          text-align: center;
-          padding: 14px 16px;
-          text-decoration: none;
-        }
-        .dropdown-content 
-        {
-          display: none;
-          position: absolute;
-          background-color: green;
-          min-width: 160px;
-          box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-          z-index: 1;
-        }
-        .dropdown-content a 
-        {
-          float: none;
-          color: black;
-          padding: 12px 16px;
-          text-decoration: none;
-          display: block;
-          text-align: left;
-        }
-        .dropdown-content a:hover 
-        {
-          background-color: #ddd;
-        }
-        .dropdown:hover .dropdown-content 
-        {
-          display: block;
-        }
         
   %body
     %ul
@@ -110,7 +69,8 @@
               %td= student.paper_history
               %td= button_to 'Edit', edit_student_path(student), :method => :get, :class => 'btn btn-primary'
               %td= button_to 'Delete', student_path(student), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-primary'
+        
     - else
       %h3 No students added yet.
-        
+            
     = link_to 'Add new student', new_student_path

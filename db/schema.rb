@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_03_005709) do
+ActiveRecord::Schema.define(version: 2020_04_10_233905) do
+
+  create_table "papers", force: :cascade do |t|
+    t.string "title"
+    t.integer "paper_id"
+    t.string "description"
+    t.text "students_assigned"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "students", force: :cascade do |t|
     t.string "name"
@@ -18,16 +27,7 @@ ActiveRecord::Schema.define(version: 2020_04_03_005709) do
     t.string "classification"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "paper_history", default: 0
-	t.string "professor_email"
-  end
-
-  create_table "papers", force: :cascade do |t|
-    t.string "title"
-    t.string "paper_id"
-    t.string "description"
-    t.text "students_assigned"
-    t.string "professor_email"
+    t.integer "paper_history"
   end
 
   create_table "users", force: :cascade do |t|
