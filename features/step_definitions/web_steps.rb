@@ -38,6 +38,14 @@ Given /^(?:|I )am on (.+)$/ do |page_name|
   visit path_to(page_name)
 end
 
+Given("I see {string}") do |string|
+  if page.respond_to? :should
+    page.should have_content(string)
+  else
+    assert page.has_content?(string)
+  end
+end
+
 
 
 ###### When ######
@@ -63,11 +71,19 @@ When /^(?:|I )press "([^\"]*)"$/ do |button|
  click_button(button)
 end
 
+When /^(?:|I )press "([^\"]*)" from "([^\"]*)"$/ do |button, field|
+  click_button(button, :from => field)
+end
+
 When /^(?:|I )follow "([^\"]*)"$/ do |link|
   click_link(link)
 end
 
 =begin
+When /^(?:|I )choose "([^\"]*)"$/ do |field|
+  choose(field, visible: false)
+end
+
 When /^(?:|I )fill in "([^"]*)" for "([^"]*)"$/ do |value, field|
   fill_in(field, :with => value)
 end
@@ -99,10 +115,6 @@ end
 
 When /^(?:|I )uncheck "([^"]*)"$/ do |field|
   uncheck(field)
-end
-
-When /^(?:|I )choose "([^"]*)"$/ do |field|
-  choose(field)
 end
 
 When /^(?:|I )attach the file "([^"]*)" to "([^"]*)"$/ do |path, field|

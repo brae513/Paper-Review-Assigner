@@ -13,21 +13,30 @@ module NavigationHelpers
   def path_to(page_name)
     case page_name
 
-    when /^the home\s?page$/
-      '/welcome/professor'
-    when /^the users homepage/
-      '/users'
-    when /^the Paper Review homepage/
+# "Welcome to Paper Review Assigner" #
+    when /^the landing page/
       '/'
+# Logged in "Welcome..." #
+    when /^the home\s?page$/
+      '/welcome/index'
+# "Professor Access" #
+    when /^the Overview page/
+      '/welcome/professor'
+# All Papers #
+    when /^the Papers page/
+      '/papers'
+# All Students #
+    when /^the Students page/
+      '/students'
+# Register #
     when /^the Sign up page/
       '/users/sign_up'
+# Register sign in #
+    when /^the users homepage/
+      '/users'
+# Log in #
     when /^the Log in page/
       '/users/sign_in'
-    
-    when /^the Professor Access page/
-      '/welcome/professor'
-    when /^the Student Access page/
-      '/welcome/student'
 
 
     # Add more mappings here.

@@ -12,7 +12,7 @@ Background:
   When I fill in "Email" with "cucumber@test.edu"
   And I fill in "Password" with "testPassword"
   And I press "Log in"
-  Then I should be on the homepage
+  Then I should be on the Overview page
 
 Scenario: Navigating to Students tab
   Given I am on the homepage
@@ -24,14 +24,22 @@ Scenario: Adding a student to the list
   When I follow "Add new student"
   And I fill in "Name" with "Cucumber"
   And I fill in "Email" with "cucumber@test.edu"
-  And I choose "Senior"
   And I press "Add student"
-  Then I should see "Cucumber was successfully created."
+  Then I should see "Cucumber"
+  And I should see "cucumber@test.edu"
   
-# Scenario: Deleting a student from the list
-#   Given I am on the Students page
-#   --step identifying which student to delete
-#   --choose delete
+Scenario: Editing student in list
+  Given I am on the Students page
+  When I press "Edit"
+  And I fill in "Name" with "Cucumber1"
+  And I press "Edit student"
+  Then I should see "Cucumber1"
+  
+Scenario: Deleting a student from the list
+  Given I am on the Students page
+  And I see "cucumber"
+  When I press "Delete"
+  Then I should not see "cucumber"
 
 Scenario: Navigate back to homepage
   Given I am on the Students page
