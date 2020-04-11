@@ -14,17 +14,21 @@ module NavigationHelpers
     case page_name
 
     when /^the home\s?page$/
-      '/'
+      '/welcome/professor'
+    when /^the users homepage/
+      '/users'
     when /^the Paper Review homepage/
-      '/welcome/index'
+      '/'
+    when /^the Sign up page/
+      '/users/sign_up'
+    when /^the Log in page/
+      '/users/sign_in'
+    
     when /^the Professor Access page/
       '/welcome/professor'
     when /^the Student Access page/
       '/welcome/student'
-    when /^the Sign up page/
-      '/users/sign_up'
-    when /^the Login page/
-      '/users/sign_in'
+
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
