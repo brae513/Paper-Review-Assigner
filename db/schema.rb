@@ -10,7 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_10_233905) do
+ActiveRecord::Schema.define(version: 2020_04_19_070137) do
+
+  create_table "eforms", force: :cascade do |t|
+    t.integer "form_uin"
+    t.text "picked_preference"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "papers", force: :cascade do |t|
     t.string "title"
@@ -23,10 +30,12 @@ ActiveRecord::Schema.define(version: 2020_04_10_233905) do
 
   create_table "students", force: :cascade do |t|
     t.string "name"
+    t.integer "uin"
     t.string "email"
     t.string "classification"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.text "paper_preference"
     t.integer "paper_history"
   end
 

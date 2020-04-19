@@ -1,7 +1,7 @@
 class StudentsController < ApplicationController
   
   def student_params
-    params.require(:student).permit(:name,:email,:classification, :paper_history)
+    params.require(:student).permit(:name,:uin,:email,:classification,:paper_history)
   end
   
   def index
