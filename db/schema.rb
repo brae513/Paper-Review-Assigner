@@ -11,7 +11,7 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema.define(version: 2020_04_19_070137) do
-
+  
   create_table "eforms", force: :cascade do |t|
     t.integer "form_uin"
     t.text "picked_preference"

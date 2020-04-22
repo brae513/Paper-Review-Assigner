@@ -6,5 +6,5 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-students = Student.create([{name:'bob', email: 'test@sote.com', classification: 'senior', paper_history: 2}])
+students = Student.create([{name:'bob', email: 'test@site.com', classification: 'Senior', paper_history: 2}])
 papers = Paper.create([{title:'Test: first edition', paper_id: 123, description: "basic description"}])

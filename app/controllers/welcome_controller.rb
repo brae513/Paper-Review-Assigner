@@ -1,3 +1,4 @@
+require 'algorithm'
 class WelcomeController < ApplicationController
     def index
     end
@@ -5,5 +6,22 @@ class WelcomeController < ApplicationController
     def professor
         @papers = Paper.all
         @students = Student.all
+        #performAssignment()
     end
+    
+    # Need a better method/function here that is more conventional
+    def performAssignment
+        print "\n TEST TEST \n"
+        @papers = Paper.all
+        @students = Student.all
+        @papers.each do |p|
+            p.students_assigned = Array.new()
+            @students.each do |s|
+                #assignPaper(s,p)
+            end
+        end
+        paperAssignment(@students,@papers)
+        redirect_to professor_path
+    end
+    #redirect_to professors_path
 end
