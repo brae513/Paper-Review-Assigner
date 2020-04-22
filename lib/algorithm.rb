@@ -64,10 +64,10 @@ def generateStudents2(students)
     stuMat = Array.new(@studentCnt){Array.new(@amtOfPrefs){-1}}
     for i in 0..@studentCnt-1
         arr = students[i].paper_preference
-        #print arr
-        #print "\n"
         for j in 0..arr.length-1
-            stuMat[i][j]=arr[j]
+        	if @paperMap.include?(arr[j])
+            	stuMat[i][j]=@paperMap.index(arr[j])
+        	end
         end
     end
     stuMat
@@ -329,7 +329,6 @@ def assignPaper(student,paper)
     x.push(student.name)
     print x
     paper.students_assigned = x
-    paper.update_attribute(:students_assigned,x)
 
 end
 
@@ -347,8 +346,8 @@ def createPaperMap(papers)
         paper = papers[i]
         arr = Array.new()
         arr.push(i)
-        arr.push(paper)
-        @paperMap.push(arr)
+        arr.push(paper.id)
+        @paperMap.push(paper.id)
     end
 end
 
@@ -364,28 +363,33 @@ def createStudentMap(students)
 end
 
 def paperAssignment(students,papers)
-    @paperCnt = papers.length
-    @studentCnt = students.length
-    @amtOfPrefs = 5
-    @studentsPerPaper = 3
-    @papersPerStudent = @paperCnt*@studentsPerPaper/@studentCnt
-	@extras=(@paperCnt*@studentsPerPaper)%@studentCnt
-    createPaperMap(papers)
-    createStudentMap(students)
-    stuMat = generateStudents2(students)
-    mat = generateMatrix(stuMat)
-    print "\n"
-    printMat(stuMat)
-    printMat(mat)
-    seniors = generateSeniors2(students)
-    print seniors
-    paperAssignments = assignPapers(mat,seniors)
-    for i in 0..@paperCnt-1
-        for j in 0..@studentsPerPaper-1
-            assignPaper(students[paperAssignments[i][j]],papers[i])
-        end
+	@paperCnt = papers.length
+	@studentCnt = students.length
+	@amtOfPrefs = 5
+	@studentsPerPaper = 3
+	if(@studentCnt>0)
+	    @papersPerStudent = @paperCnt*@studentsPerPaper/@studentCnt
+		@extras=(@paperCnt*@studentsPerPaper)%@studentCnt
+	    createPaperMap(papers)
+	    createStudentMap(students)
+	    stuMat = generateStudents2(students)
+	    mat = generateMatrix(stuMat)
+	    print "\n"
+	    printMat(stuMat)
+	    printMat(mat)
+	    seniors = generateSeniors2(students)
+	    print seniors
+	    paperAssignments = assignPapers(mat,seniors)
+	    for i in 0..@paperCnt-1
+	    	paper = papers.find(@paperMap[i])
+	    	paper.students_assigned = Array.new()
+	        for j in 0..@studentsPerPaper-1
+	            assignPaper(students[paperAssignments[i][j]],paper)
+	        end
+	        paper.update_attribute(:students_assigned,paper.students_assigned)
+	    end
+	    printMat(paperAssignments)
     end
-    printMat(paperAssignments)
 end
 @paperCnt = 0
 @studentCnt = 0

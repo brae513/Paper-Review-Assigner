@@ -27,7 +27,7 @@ class EformsController < ApplicationController
         print "\n"
         arr = Array.new()
         arr.push(x.title)
-        arr.push(i)
+        arr.push(x.id)
         @options.push(arr)
         i+=1
     end
