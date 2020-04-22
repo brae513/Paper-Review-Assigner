@@ -78,28 +78,10 @@
         }
 
   %body
-    %ul
-      .navBar
-      %li.navBar
-        = link_to "Home", index_path
-      %li.navBar
-        = link_to "Overview", professor_path
-      %li.navBar
-        = link_to "Papers", papers_path
-      %li.navBar
-        = link_to "Students", students_path
-      %li.navBar
-        = link_to "Eforms", eform_path(@students[0])
-        
-      %li.navBar{:style => "float:right"}
-        = link_to "Log Out", destroy_user_session_path, :method => :delete
-
     // Page content container
     %div.container
       %div.row
         %h1.col.text-center.font-weight-bold Professor Access
-        
-          
       %div.row
         // Left column of page
       - if !@papers.nil?
@@ -113,16 +95,23 @@
               %tr
                 %td= paper.title
                 %td= paper.students_assigned
-
-      %div.row
-        %div.col-lg-12.text-center
-          %button.btn.btn-primary.btn-large Alert Students 
-          %ul{"aria-hidden" => "true", :role => "menu"}
-            %li
-              = link_to "Assign", students_path
-        // Right column of page 
-        %div.col.right-col
-          %div.col-sm-auto
-            %button.btn.btn-primary.btn-large.btn-block Assign Papers
-          %div.col-sm-auto
-            %button.btn.btn-primary.btn-large.btn-block Email Assignments to Students
+                
+    %h2 Form Here
+    = form_tag eform_path(@student), :method => :put do 
+      %div
+        =label :eform, 'First preference'
+        =select_tag :pref1, options_for_select(@options)
+      %div    
+        =label :eform, 'second preference'
+        =select_tag :pref2, options_for_select(@options)
+      %div
+        =label :eform, 'third preference'
+        =select_tag :pref3, options_for_select(@options)
+      %div
+        =label :eform, 'fourth preference'
+        =select_tag :pref4, options_for_select(@options)
+      %div
+        =label :eform, 'fifth preference'
+        =select_tag :pref5, options_for_select(@options)
+  
+      = submit_tag 'Submit Form', :class => 'btn btn-primary'

@@ -2,6 +2,7 @@ Rails.application.routes.draw do
     get 'students/index'
     get 'students/new'
     get 'students/show'
+    get 'students/preference'
     get 'papers/index'
     get 'papers/new'
 
@@ -14,4 +15,5 @@ Rails.application.routes.draw do
 
     resources :students
     resources :papers
+    resources :eforms
 end

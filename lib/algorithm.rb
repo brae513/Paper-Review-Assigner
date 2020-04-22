@@ -8,7 +8,8 @@ def printMat(mat)
 	#		puts x
 	#	end
 	#end
-	for i in 0..mat.length-1
+=begin
+for i in 0..mat.length-1
 		print i
 		print ":\t"
 		#print mat[i]
@@ -19,6 +20,7 @@ def printMat(mat)
 		end
 		print "\n"
 	end
+=end
 	for i in 0..mat.length-1
 		print i
 		print mat[i]
@@ -59,13 +61,16 @@ def generateStudents()
 end
 
 def generateStudents2(students)
-    stuMat = Array.new(@studentCnt,Array.new(@amtOfPrefs,-1))
-    #for i in 0..@studentCnt-1
-        #arr = students.paper_preferences
-        #for j in 0..arr.length-1
-            #stuMat[i][j]=arr[j]
-        #end
-    #end
+    stuMat = Array.new(@studentCnt){Array.new(@amtOfPrefs){-1}}
+    for i in 0..@studentCnt-1
+        arr = students[i].paper_preference
+        #print arr
+        #print "\n"
+        for j in 0..arr.length-1
+            stuMat[i][j]=arr[j]
+        end
+    end
+    stuMat
 end
 
 def generateSeniors()
@@ -90,10 +95,13 @@ end
 
 def generateMatrix(stuMat)
 	mat = Array.new(@paperCnt){Array.new(@studentCnt){0}}	
+	#print stuMat
+	print @studentCnt
 	for i in 0..@studentCnt-1
+		#print stuMat[0]
 		for j in 0..stuMat[i].size-1
 			if stuMat[i][j] != -1
-				mat[stuMat[i][j]][i] = j+1
+				mat[stuMat[i][j]][i] = @amtOfPrefs-j
 			end
 			#printMat(mat)
 		end
@@ -137,6 +145,10 @@ def assignPapers(mat,isSenior)
 			end
 		end
 		#Assign the senior to the paper
+		if maxStud == -1
+			print "ERROR\n"
+			print eligibleSeniors.size
+		end
 		sen = eligibleSeniors[maxStud]
 		paperAssignments[i][0]=sen
 		papersAssigned[sen]+=1
@@ -317,6 +329,7 @@ def assignPaper(student,paper)
     x.push(student.name)
     print x
     paper.students_assigned = x
+    paper.update_attribute(:students_assigned,x)
 
 end
 
@@ -361,7 +374,11 @@ def paperAssignment(students,papers)
     createStudentMap(students)
     stuMat = generateStudents2(students)
     mat = generateMatrix(stuMat)
+    print "\n"
+    printMat(stuMat)
+    printMat(mat)
     seniors = generateSeniors2(students)
+    print seniors
     paperAssignments = assignPapers(mat,seniors)
     for i in 0..@paperCnt-1
         for j in 0..@studentsPerPaper-1
