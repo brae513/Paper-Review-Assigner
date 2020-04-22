@@ -1,7 +1,16 @@
+# spec/controllser/students_controller_spec.rb
+
 require 'rails_helper'
+require 'student'
 
-RSpec.describe StudentsController, type: :controller do
-
+describe StudentsController do
+  describe 'update student info' do
+    it 'should change the information that is updated'
+    it 'should call the model method that performs update'
+    it 'should confirm the information was updated'
+    it 'should send the user to the updated screen'
+  end
+  
   describe "GET #index" do
     it "returns http success" do
       get :index

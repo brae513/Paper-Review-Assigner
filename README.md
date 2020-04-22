@@ -68,6 +68,11 @@ Get it on Heroku:
 19. $ heroku run rake db:migrate
 
 -------------------------------------------------------------------
+Testing:
+
+Installing autotest:
+1. Install ZenTest (CURRENTLY NOT WORKING)
+   $ sudo apt install ZenTest
 
 Initializing Cucumber test database:
 1. Run after every change to database before testing:

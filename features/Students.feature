@@ -24,6 +24,7 @@ Scenario: Adding a student to the list
   When I follow "Add new student"
   And I fill in "Name" with "Cucumber"
   And I fill in "Email" with "cucumber@test.edu"
+  And I choose "Senior"
   And I press "Add student"
   Then I should see "Cucumber"
   And I should see "cucumber@test.edu"
@@ -37,9 +38,9 @@ Scenario: Editing student in list
   
 Scenario: Deleting a student from the list
   Given I am on the Students page
-  And I see "cucumber"
+  And I see "bob"
   When I press "Delete"
-  Then I should not see "cucumber"
+  Then I should not see "bob"
 
 Scenario: Navigate back to homepage
   Given I am on the Students page

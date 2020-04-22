@@ -71,8 +71,8 @@ When /^(?:|I )press "([^\"]*)"$/ do |button|
  click_button(button)
 end
 
-When /^(?:|I )press "([^\"]*)" from "([^\"]*)"$/ do |button, field|
-  click_button(button, :from => field)
+When /^(?:|I )choose "([^\"]*)"$/ do |field|
+  find('label', visible: false, :text => field).choose(field)
 end
 
 When /^(?:|I )follow "([^\"]*)"$/ do |link|
