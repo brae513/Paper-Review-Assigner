@@ -5,7 +5,7 @@ class StudentsController < ApplicationController
   end
   
   def index
-    @students = Student.all
+    @students = Student.students_sorted()
   end
   
   def create
