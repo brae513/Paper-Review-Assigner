@@ -9,7 +9,6 @@ class PapersController < ApplicationController
   
   def create
     @paper = Paper.create!(paper_params)
-    @student.update_attribute(:user, current_user.id)
     flash[:notice] = "#{@paper.title} was successfully created."
     @paper.save
     redirect_to papers_path
@@ -42,11 +41,11 @@ class PapersController < ApplicationController
       @paper = Paper.find params[:id]
       @student = Student.find params[:student]
       @paper.students_assigned.push(@student.id)
+      @student.update_attribute(:current_papers,@student.current_papers+1)
       @paper.update_attribute(:students_assigned,@paper.students_assigned)
       flash[:notice] = "#{@paper.title} was successfully updated."
       redirect_to professor_path
     elsif params[:type] == "rem"
-      print "\n REMOVING \n"
       @paper = Paper.find params[:id]
       @student = Student.find params[:student]
       @paper.students_assigned.each do |x|
@@ -54,8 +53,8 @@ class PapersController < ApplicationController
           @paper.students_assigned.delete(x)
         end
       @paper.update_attribute(:students_assigned,@paper.students_assigned)
-
       end
+      @student.update_attribute(:current_papers,@student.current_papers-1)
       redirect_to professor_path
     end
   end

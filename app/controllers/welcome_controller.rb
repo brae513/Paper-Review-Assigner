@@ -16,9 +16,9 @@ class WelcomeController < ApplicationController
         @students = Student.all
         @papers.each do |p|
             p.students_assigned = Array.new()
-            @students.each do |s|
-                #assignPaper(s,p)
-            end
+        end
+        @students.each do |s|
+            s.current_papers=0
         end
         paperAssignment(@students,@papers)
         redirect_to professor_path

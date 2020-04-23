@@ -6,7 +6,8 @@ class CreateStudents < ActiveRecord::Migration[6.0]
       t.string :email
       t.string :classification
       t.text :paper_preference
-      t.string :paper_history
+      t.integer :paper_history
+      t.integer :current_papers
       
       t.timestamps
     end

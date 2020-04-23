@@ -328,6 +328,7 @@ def assignPaper(student,paper)
     x = paper.students_assigned
     x.push(student.id)
     print x
+    student.current_papers+=1
     paper.students_assigned = x
 
 end
@@ -387,6 +388,9 @@ def paperAssignment(students,papers)
 	            assignPaper(students[paperAssignments[i][j]],paper)
 	        end
 	        paper.update_attribute(:students_assigned,paper.students_assigned)
+	    end
+	    students.each do |s|
+	    	s.update_attribute(:current_papers,s.current_papers)
 	    end
 	    printMat(paperAssignments)
 	end

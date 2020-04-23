@@ -10,8 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_10_233905) do
-  
+ActiveRecord::Schema.define(version: 2020_04_23_085556) do
+
   create_table "eforms", force: :cascade do |t|
     t.integer "form_uin"
     t.text "picked_preference"
@@ -26,15 +26,19 @@ ActiveRecord::Schema.define(version: 2020_04_10_233905) do
     t.text "students_assigned"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    #t.integer "user"
   end
 
   create_table "students", force: :cascade do |t|
     t.string "name"
     t.string "email"
-    t.string "classification"
+    t.string "classification", default: "Senior"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "paper_history"
+    t.integer "paper_history", default: 0
+    t.integer "current_papers", default: 0
+    t.text "paper_preference"
+    #t.integer "user"
   end
 
   create_table "users", force: :cascade do |t|
