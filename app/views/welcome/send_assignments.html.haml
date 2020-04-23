@@ -100,38 +100,23 @@
           
       %div.row
         // Left column of page
-      - if !@papers.nil?
-        %table#papers.table.table-striped.col-md-12
-          %thead
-            %tr
-              %th Title
-              %th Students Assigned
-          %tbody
-            - @papers.each do |paper|
-              %tr
-                %td= paper.title
-                %td
-                  - paper.students_assigned.each do |stu|
-                    %div
-                      -if Student.exists?(stu)
-                        ="#{Student.find(stu).name}(#{Student.find(stu).paper_history})"
-                  %div
-                    =button_to "Add Student", edit_paper_path(paper), :method => :get 
-                %td
-                  - paper.students_assigned.each do |stu|
-                    %div
-                      -if Student.exists?(stu)
-                        =button_to "Remove #{Student.find(stu).name}", paper_path(paper, student:stu, type:"rem"), :method => :put        
+      - if !@student.nil?
+        ="Send to: #{@student.email}"       
+        %div
+          ="Howdy #{@student.name}\n You have received the following papers to review.\n"
+          - @assignments.each do |paper|
+            %div
+              =paper.title
+        %div
+          -if @prev>-1
+            =button_to "Previous", assignments_path, :params =>{student:@prev},:method=> :get, :class => 'btn btn-primary'
+          =button_to "Next", assignments_path, :params =>{student:@next},:method=> :get, :class => 'btn btn-primary'
+      - else
+        ="You have finished all of the students. You can either go back through the emails or go to the overview page"
+        %div
+          -if @prev>-1
+            =button_to "Previous", assignments_path, :params =>{student:@prev},:method=> :get, :class => 'btn btn-primary'
+          =button_to "Overview", professor_path, :method=> :get, :class => 'btn btn-primary'
 
-
-
-      %div.row
-        %div.col-lg-12.text-center
-          =button_to "Send preference forms to students", email_forms_path,  :method=> :get, :params =>{student:0},:class => 'btn btn-primary'
-        %div.col-lg-12.text-center
-          =button_to "Assign Students", professor_path, :method=> :performAssignment, :class => 'btn btn-primary'
-        %div.col-lg-12.text-center
-          =button_to "Send assignments", assignments_path, :method=> :send_assignments, :method=> :get, :params =>{student:0},:class => 'btn btn-primary btn-large'
-          //%button.btn.btn-primary.btn-large Email Assignments to Students
           
           

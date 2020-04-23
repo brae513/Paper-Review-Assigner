@@ -10,6 +10,7 @@ class StudentsController < ApplicationController
   
   def create
     @student = Student.create!(student_params)
+    @student.update_attribute(:user, current_user.id)
     flash[:notice] = "#{@student.name} was successfully created."
     @student.save
     redirect_to students_path

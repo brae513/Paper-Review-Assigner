@@ -9,6 +9,7 @@ class PapersController < ApplicationController
   
   def create
     @paper = Paper.create!(paper_params)
+    @student.update_attribute(:user, current_user.id)
     flash[:notice] = "#{@paper.title} was successfully created."
     @paper.save
     redirect_to papers_path
