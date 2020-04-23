@@ -8,6 +8,7 @@ class CreateStudents < ActiveRecord::Migration[6.0]
       t.text :paper_preference
       t.integer :paper_history
       t.integer :current_papers
+
       
       t.timestamps
     end

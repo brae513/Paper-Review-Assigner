@@ -3,7 +3,7 @@ class AddStudentDefaults < ActiveRecord::Migration[6.0]
   def up
     #change_column_default(:students, :uin, 888008880)
     change_column_default(:students, :classification, "Senior")
-    change_column_default(:students, :paper_preference, Array.new())
+    change_column_default(:students, :paper_preference, "")
     change_column_default(:students, :paper_history, "0")
     change_column_default(:students, :current_papers, "0")
   end

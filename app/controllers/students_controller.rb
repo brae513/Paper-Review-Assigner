@@ -1,7 +1,7 @@
 class StudentsController < ApplicationController
   
   def student_params
-    params.require(:student).permit(:name,:email,:classification, :paper_history)
+    params.require(:student).permit(:name,:uin,:email,:classification,:paper_history)
   end
   
   def index
@@ -42,8 +42,4 @@ class StudentsController < ApplicationController
   def new
   end
   
-  def class_choice
-    #returns an array of choices that will be used for the dropdown menu for editing students
-    #why are student classifications a string instead of any other kind of class...
-  end
 end

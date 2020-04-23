@@ -13,6 +13,7 @@ class EformsController < ApplicationController
     @students = Student.all
     @eforms = Eform.all
   end
+<<<<<<< HEAD
   def show
     @papers = Paper.all
     @students = Student.all
@@ -32,6 +33,8 @@ class EformsController < ApplicationController
         i+=1
     end
   end
+=======
+>>>>>>> master
   def create
     @papers = Paper.all
     @students = Student.all

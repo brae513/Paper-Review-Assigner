@@ -1,0 +1,93 @@
+%html
+  %head
+    :css
+        ul
+        {
+          list-style-type: none;
+          margin: 0;
+          padding: 0;
+          overflow: hidden;
+          background-color: #333;
+        }
+        
+        li.navBar
+        {
+          float: left;
+        }
+        
+        li.navBarActive
+        {
+          float: left;
+          background-color: #8d42f5;
+        }
+        
+        li.navBar a
+        {
+          display: block;
+          color: white;
+          text-align: center;
+          padding: 14px 16px;
+          text-decoration: none;
+        }
+        
+        li.navBar a:hover:not(.active)
+        {
+          background-color: #4287f5;
+        }
+
+        li.navBarActive a
+        {
+          display: block;
+          color: white;
+          text-align: center;
+          padding: 14px 16px;
+          text-decoration: none;
+        }
+        
+        li.navBarActive a:hover:not(.active)
+        {
+          background-color: #4287f5;
+        }    
+
+        li.linkToProfessorItems
+        {
+          display: block;
+          text-align: center;
+          padding: 14px 16px;
+          text-decoration: none;
+        }
+        
+        button {
+          width: 100%;
+          height: 40px;
+          display: block;
+          margin: 10px;
+        }
+    
+        #add-paper {
+          text-align: center;
+          position: center;
+        }
+        
+        #form_id {
+          text-align: center;
+        }
+        button {
+          height: 4em;
+          width: 40em;
+        }
+
+  %body
+    - if !@papers.nil?
+      %table#papers.table.table-striped.col-md-12
+        %thead
+          %tr
+            %th Title
+            %th Students Assigned
+        %tbody
+          - @papers.each do |paper|
+            %tr
+              %td= paper.title
+              %td= paper.students_assigned
+                
+%h2 You Have Submitted Your Form, You May Close The Application.
