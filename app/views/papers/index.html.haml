@@ -67,7 +67,11 @@
               %td= paper.title
               %td= paper.paper_id
               %td= paper.description
-              %td= paper.students_assigned
+              %td
+                - paper.students_assigned.each do |stu|
+                  %div
+                    -if Student.exists?(stu)
+                      =Student.find(stu).name
               %td= button_to 'Delete', paper_path(paper.id), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-primary'
 
     - else

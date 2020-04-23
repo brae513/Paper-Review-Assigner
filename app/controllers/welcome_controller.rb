@@ -1,5 +1,7 @@
 require 'algorithm'
 class WelcomeController < ApplicationController
+    protect_from_forgery with: :null_session
+
     def index
     end
     
@@ -23,5 +25,5 @@ class WelcomeController < ApplicationController
         paperAssignment(@students,@papers)
         redirect_to professor_path
     end
-    #redirect_to professors_path
+    
 end

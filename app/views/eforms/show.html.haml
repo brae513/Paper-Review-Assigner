@@ -81,7 +81,8 @@
     // Page content container
     %div.container
       %div.row
-        %h1.col.text-center.font-weight-bold Professor Access
+        %h1.col.text-center.font-weight-bold 
+          ="#{@student.name}'s preferences"
       %div.row
         // Left column of page
       - if !@papers.nil?
@@ -89,12 +90,12 @@
           %thead
             %tr
               %th Title
-              %th Students Assigned
+              %th Description
           %tbody
             - @papers.each do |paper|
               %tr
                 %td= paper.title
-                %td= paper.students_assigned
+                %td= paper.description
                 
     %h2 Form Here
     = form_tag eform_path(@student), :method => :put do 

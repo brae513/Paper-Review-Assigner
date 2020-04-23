@@ -112,13 +112,27 @@
             - @papers.each do |paper|
               %tr
                 %td= paper.title
-                %td= paper.students_assigned
+                %td
+                  - paper.students_assigned.each do |stu|
+                    %div
+                      -if Student.exists?(stu)
+                        =Student.find(stu).name
+                  %div
+                    =button_to "Add Student", edit_paper_path(paper), :method => :get, :class => 'btn btn-primary'
+                %td
+                  - paper.students_assigned.each do |stu|
+                    %div
+                      -if Student.exists?(stu)
+                        =button_to "Remove #{Student.find(stu).name}", paper_path(paper, student:stu, type:"rem"), :method => :put        
+                      //= button_to "Remove #{stu}", edit_student_path(stu), :method => :get, :class => 'btn btn-primary'
+
+
 
       %div.row
         %div.col-lg-12.text-center
           %button.btn.btn-primary.btn-large Alert Students 
         %div.col-lg-12.text-center
-          =button_to "Assign Students", :method=> :performAssignment
+          =button_to "Assign Students", professor_path, :method=> :performAssignment, :class => 'btn btn-primary'
         %div.col-lg-12.text-center
           %button.btn.btn-primary.btn-large Email Assignments to Students
           
