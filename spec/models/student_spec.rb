@@ -5,8 +5,8 @@ require 'student'
 
 RSpec.describe Student, :type => :model do
     subject {
-        described_class.create(name: "Griffin Test",
-                               email: "griffin@test.edu",
+        described_class.create(name: "Test",
+                               email: "test@test.edu",
                                classification: "senior",
                                paper_history: 1)
     }

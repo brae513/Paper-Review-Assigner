@@ -3,16 +3,17 @@
 require 'rails_helper'
 require 'student'
 
-describe StudentsController do
-  describe 'update student info' do
-    it 'should change the information that is updated'
-    it 'should call the model method that performs update'
-    it 'should confirm the information was updated'
-    it 'should send the user to the updated screen'
+RSpec.describe StudentsController, :type => :controller do
+
+  describe '#update' do
+    let(:student) {Student.create(name: "Test",
+                                  email: "test@test.edu",
+                                  classification: "senior",
+                                  paper_history: 1)}
   end
-  
   describe "GET #index" do
-    it "returns http success" do
+    it ''
+    it 'returns http success' do
       get :index
       expect(response).to have_http_status(:success)
     end
