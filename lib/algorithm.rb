@@ -283,7 +283,7 @@ def assignPapers(mat,isSenior)
 					print "\n"
 				else
 					#Performs the trade
-					paperAssignments[paper][2-j] = paperAssignments[paperToTrade][studentToTrade]
+					paperAssignments[paper][@studentsPerPaper-studsReq+j] = paperAssignments[paperToTrade][studentToTrade]
 					paperAssignments[paperToTrade][studentToTrade] = oldStudToTrade
 					papersAssigned[oldStudToTrade]+=1
 					studentsAssigned[paper]+=1
@@ -326,7 +326,7 @@ def assignPaper(student,paper)
 
     print paper.students_assigned
     x = paper.students_assigned
-    x.push(student.name)
+    x.push(student.id)
     print x
     paper.students_assigned = x
 
@@ -389,13 +389,14 @@ def paperAssignment(students,papers)
 	        paper.update_attribute(:students_assigned,paper.students_assigned)
 	    end
 	    printMat(paperAssignments)
-    end
+	end
 end
 @paperCnt = 0
 @studentCnt = 0
 @studentMap = Array.new()
 @paperMap = Array.new()
 
+=begin
 #Variables
 for i in 0..1
 	print(i)
@@ -429,3 +430,4 @@ for i in 0..1
 	
 	#printMat(papAssign)
 end
+=end

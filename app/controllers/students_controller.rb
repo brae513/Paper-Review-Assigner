@@ -10,6 +10,7 @@ class StudentsController < ApplicationController
   
   def create
     @student = Student.create!(student_params)
+    @student.update_attribute(:user, current_user.id)
     flash[:notice] = "#{@student.name} was successfully created."
     @student.save
     redirect_to students_path
@@ -38,14 +39,6 @@ class StudentsController < ApplicationController
     redirect_to students_path
   end
   
-  def preference
-    @students = Student.all
-    @papers = Paper.all
-    #@student = Student.find params[:id]
-    #@student.update_attributes!(student_params)
-    #flash[:notice] = "#{@student.name} was successfully updated."
-    #redirect_to eforms_path
-  end
   
   def new
   end

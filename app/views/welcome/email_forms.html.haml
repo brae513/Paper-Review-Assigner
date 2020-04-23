@@ -9,18 +9,18 @@
           overflow: hidden;
           background-color: #333;
         }
-
+        
         li.navBar
         {
           float: left;
         }
-
+        
         li.navBarActive
         {
           float: left;
           background-color: #8d42f5;
         }
-
+        
         li.navBar a
         {
           display: block;
@@ -29,7 +29,7 @@
           padding: 14px 16px;
           text-decoration: none;
         }
-
+        
         li.navBar a:hover:not(.active)
         {
           background-color: #4287f5;
@@ -43,11 +43,11 @@
           padding: 14px 16px;
           text-decoration: none;
         }
-
+        
         li.navBarActive a:hover:not(.active)
         {
           background-color: #4287f5;
-        }
+        }    
 
         li.linkToProfessorItems
         {
@@ -56,19 +56,19 @@
           padding: 14px 16px;
           text-decoration: none;
         }
-
+        
         button {
           width: 100%;
           height: 40px;
           display: block;
           margin: 10px;
         }
-
+    
         #add-paper {
           text-align: center;
           position: center;
         }
-
+        
         #form_id {
           text-align: center;
         }
@@ -88,7 +88,7 @@
         = link_to "Papers", papers_path
       %li.navBar
         = link_to "Students", students_path
-
+        
       %li.navBar{:style => "float:right"}
         = link_to "Log Out", destroy_user_session_path, :method => :delete
 
@@ -96,40 +96,25 @@
     %div.container
       %div.row
         %h1.col.text-center.font-weight-bold Professor Access
-
-
+        
+          
       %div.row
         // Left column of page
-      - if !@papers.nil?
-        %table#papers.table.table-striped.col-md-12
-          %thead
-            %tr
-              %th Title
-              %th Students Assigned
-          %tbody
-            - @papers.each do |paper|
-              %tr
-                %td= paper.title
-                %td
-                  - paper.students_assigned.each do |stu|
-                    %div
-                      -if Student.exists?(stu)
-                        ="#{Student.find(stu).name}(#{Student.find(stu).paper_history})"
-                  %div
-                    =button_to "Add Student", edit_paper_path(paper), :method => :get
-                %td
-                  - paper.students_assigned.each do |stu|
-                    %div
-                      -if Student.exists?(stu)
-                        =button_to "Remove #{Student.find(stu).name}", paper_path(paper, student:stu, type:"rem"), :method => :put
+      - if !@student.nil?
+        ="Send to: #{@student.email}"       
+        %div
+          ="Howdy #{@student.name}\n The following is a link to select your preferences for paper review, please fill it out in order to review your ideal set of papers.\n"
+          =link_to "#{eform_url(@student.id)}",eform_path(@student.id)
+        %div
+          -if @prev>-1
+            =button_to "Previous", email_forms_path, :params =>{student:@prev},:method=> :get, :class => 'btn btn-primary'
+          =button_to "Next", email_forms_path, :params =>{student:@next},:method=> :get, :class => 'btn btn-primary'
+      - else
+        ="You have finished all of the students. You can either go back through the emails or go to the overview page"
+        %div
+          -if @prev>-1
+            =button_to "Previous", email_forms_path, :params =>{student:@prev},:method=> :get, :class => 'btn btn-primary'
+          =button_to "Overview", professor_path, :method=> :get, :class => 'btn btn-primary'
 
-
-
-      %div.row
-        %div.col-lg-12.text-center
-          =button_to "Send preference forms to students", email_forms_path,  :method=> :get, :params =>{student:0},:class => 'btn btn-primary'
-        %div.col-lg-12.text-center
-          =button_to "Assign Students", professor_path, :method=> :performAssignment, :class => 'btn btn-primary'
-        %div.col-lg-12.text-center
-          =button_to "Send assignments", assignments_path, :method=> :send_assignments, :method=> :get, :params =>{student:0},:class => 'btn btn-primary btn-large'
-          //%button.btn.btn-primary.btn-large Email Assignments to Students
+          
+          

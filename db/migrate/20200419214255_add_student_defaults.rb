@@ -6,7 +6,7 @@ class AddStudentDefaults < ActiveRecord::Migration[6.0]
     change_column_default(:students, :paper_preference, "")
     change_column_default(:students, :paper_history, "0")
   end
-  
+
   def down
     change_column_default(:students, :uin, nil)
     change_column_default(:students, :classification, nil)

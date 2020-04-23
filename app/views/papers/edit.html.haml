@@ -1,0 +1,103 @@
+%html
+  %head
+    :css
+        ul
+        {
+          list-style-type: none;
+          margin: 0;
+          padding: 0;
+          overflow: hidden;
+          background-color: #333;
+        }
+        
+        li.navBar
+        {
+          float: left;
+        }
+        
+        li.navBarActive
+        {
+          float: left;
+          background-color: #8d42f5;
+        }
+        
+        li a
+        {
+          display: block;
+          color: white;
+          text-align: center;
+          padding: 14px 16px;
+          text-decoration: none;
+        }
+        
+        li a:hover:not(.active)
+        {
+          background-color: #4287f5;
+        }
+      
+        .dropdown
+        {
+          float: left;
+          overflow: hidden;
+        }
+        .dropdown .dropbtn 
+        {
+          border: none;
+          outline: none;
+          color: green;
+          text-align: center;
+          padding: 14px 16px;
+          text-decoration: none;
+        }
+        .dropdown-content 
+        {
+          display: none;
+          position: absolute;
+          background-color: green;
+          min-width: 160px;
+          box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+          z-index: 1;
+        }
+        .dropdown-content a 
+        {
+          float: none;
+          color: black;
+          padding: 12px 16px;
+          text-decoration: none;
+          display: block;
+          text-align: left;
+        }
+        .dropdown-content a:hover 
+        {
+          background-color: #ddd;
+        }
+        .dropdown:hover .dropdown-content 
+        {
+          display: block;
+        }
+        
+  %body
+    %ul
+      .navBar
+      %li.navBar
+        = link_to "Home", index_path
+      %li.navBar
+        = link_to "Overview", professor_path
+      %li.navBar
+        = link_to "Papers", papers_path
+      %li.navBar
+        = link_to "Students", students_path
+        
+      %li.navBar{:style => "float:right"}
+        = link_to "Log Out", destroy_user_session_path, :method => :delete
+    
+%h2 
+  -"Add student to #{@paper.title}"
+
+= form_tag paper_path(@paper, type:"add"), :method => :put do 
+  %div
+    =label :paper, 'Student to add'
+    =select_tag :student, options_for_select(@options)
+  %div
+  = submit_tag 'Add student', :class => 'btn btn-primary'
+  
