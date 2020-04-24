@@ -12,14 +12,19 @@ Background:
   When I fill in "Email" with "cucumber@test.edu"
   And I fill in "Password" with "testPassword"
   And I press "Log in"
-  Then I should be on the Overview page
+  Then I should be on the Log in page
 
 Scenario: Navigating to Overview page
-  Given I am on the homepage
+  Given I am on the Students page
   When I follow "Overview"
   Then I should be on the Overview page
   
-## TODO: Scenarios for alerting students once functional ##
+Scenario: Alerting students
+  Given I am on the Overview page
+  When I press "Send preference forms to students"
+  Then I should see "You have finished all of the students"
+  When I press "Overview"
+  Then I should be on the Overview page
   
 Scenario: Navigating from Overview page
   Given I am on the Overview page

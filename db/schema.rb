@@ -26,7 +26,6 @@ ActiveRecord::Schema.define(version: 2020_04_23_085556) do
     t.text "students_assigned"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    #t.integer "user"
   end
 
   create_table "students", force: :cascade do |t|
@@ -39,7 +38,6 @@ ActiveRecord::Schema.define(version: 2020_04_23_085556) do
     t.integer "paper_history", default: 0
     t.integer "current_papers", default: 0
     t.text "paper_preference"
-    #t.integer "user"
   end
 
   create_table "users", force: :cascade do |t|

@@ -11,7 +11,7 @@ Scenario: Register (Navigation and filling form)
   And I fill in "Password" with "testPassword"
   And I fill in "Password confirmation" with "testPassword"
   And I press "Sign up"
-  Then I should be on the users homepage
+  Then I should be on the Overview page
     
 Scenario: Login (Navigation and filling form)
   Given I am on the landing page
@@ -20,4 +20,4 @@ Scenario: Login (Navigation and filling form)
   When I fill in "Email" with "cucumber@test.edu"
   And I fill in "Password" with "testPassword"
   And I press "Log in"
-  Then I should be on the Overview page
+  Then I should be on the Log in page
