@@ -57,20 +57,16 @@
         %thead
           %tr
             %th Name
-            %th UIN
             %th Email
             %th Classification
-            %th Paper Preference
             %th Previous paper amount
             %th Current paper amount
         %tbody
           - @students.each do |student|
             %tr
               %td= student.name
-              %td= student.uin
               %td= student.email
               %td= student.classification
-              %td= student.paper_preference
               %td= student.paper_history
               %td= student.current_papers
               %td= button_to 'Preference', eform_path(student), :method => :get, :class => 'btn btn-primary'

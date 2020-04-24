@@ -13,7 +13,6 @@ class EformsController < ApplicationController
     @students = Student.all
     @eforms = Eform.all
   end
-<<<<<<< HEAD
   def show
     @papers = Paper.all
     @students = Student.all
@@ -33,8 +32,6 @@ class EformsController < ApplicationController
         i+=1
     end
   end
-=======
->>>>>>> master
   def create
     @papers = Paper.all
     @students = Student.all
@@ -44,7 +41,13 @@ class EformsController < ApplicationController
     redirect_to eforms_submission_verification_path
   end
   def submission_verification
-    @papers = Paper.all
+    @papers = Array.new()
+    @student = Student.find(params[:student])
+    @student.paper_preference.each do |paper|
+      if paper!=-1
+        @papers.push(Paper.find(paper))
+      end
+    end
     @students = Student.all
     @eforms = Eform.all
   end
@@ -64,6 +67,6 @@ class EformsController < ApplicationController
     print '\n'
     print @student.paper_preference
     print "\n"
-    redirect_to professor_path
+    redirect_to submission_verification_path student: @student.id
   end
 end
