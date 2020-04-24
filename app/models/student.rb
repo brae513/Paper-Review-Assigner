@@ -1,5 +1,5 @@
 class Student < ApplicationRecord
-<<<<<<< HEAD
+
     validates(:name,
               :presence     => { :message => 'can\'t be blank' },)
               
@@ -16,7 +16,7 @@ class Student < ApplicationRecord
                length: { in: 0..20 },
                allow_blank: true,
                allow_nil: true)
-=======
+
     serialize :paper_preference, Array
->>>>>>> master
+
 end
