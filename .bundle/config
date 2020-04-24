@@ -1,3 +1,7 @@
 ---
+<<<<<<< HEAD
 BUNDLE_PATH: ".bundle"
 BUNDLE_WITHOUT: "production"
+=======
+BUNDLE_WITHOUT: "productio:production"
+>>>>>>> master

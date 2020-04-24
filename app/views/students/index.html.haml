@@ -60,6 +60,7 @@
             %th Email
             %th Classification
             %th Previous paper amount
+            %th Current paper amount
         %tbody
           - @students.each do |student|
             %tr
@@ -67,6 +68,8 @@
               %td= student.email
               %td= student.classification
               %td= student.paper_history
+              %td= student.current_papers
+              %td= button_to 'Preference', eform_path(student), :method => :get, :class => 'btn btn-primary'
               %td= button_to 'Edit', edit_student_path(student), :method => :get, :class => 'btn btn-primary'
               %td= button_to 'Delete', student_path(student), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-primary'
         

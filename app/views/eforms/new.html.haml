@@ -78,27 +78,10 @@
         }
 
   %body
-    %ul
-      .navBar
-      %li.navBar
-        = link_to "Home", index_path
-      %li.navBar
-        = link_to "Overview", professor_path
-      %li.navBar
-        = link_to "Papers", papers_path
-      %li.navBar
-        = link_to "Students", students_path
-
-        
-      %li.navBar{:style => "float:right"}
-        = link_to "Log Out", destroy_user_session_path, :method => :delete
-
     // Page content container
     %div.container
       %div.row
         %h1.col.text-center.font-weight-bold Professor Access
-        
-          
       %div.row
         // Left column of page
       - if !@papers.nil?
@@ -106,36 +89,23 @@
           %thead
             %tr
               %th Title
-              %th Students Assigned (cur,last)
+              %th Students Assigned
           %tbody
             - @papers.each do |paper|
               %tr
                 %td= paper.title
-                %td
-                  - paper.students_assigned.each do |s|
-                    %div
-                      -if Student.exists?(s)
-                        -stu = Student.find(s)
-                        -if stu.classification == "Senior"
-                          ="*"
-                        ="#{stu.name}  (#{stu.current_papers},#{stu.paper_history})"
-                  %div
-                    =button_to "Add Student", edit_paper_path(paper), :method => :get 
-                %td
-                  - paper.students_assigned.each do |stu|
-                    %div
-                      -if Student.exists?(stu)
-                        =button_to "Remove #{Student.find(stu).name}", paper_path(paper, student:stu, type:"rem"), :method => :put        
-
-
-
-      %div.row
-        %div.col-lg-12.text-center
-          =button_to "Send preference forms to students", email_forms_path,  :method=> :get, :params =>{student:0},:class => 'btn btn-primary'
-        %div.col-lg-12.text-center
-          =button_to "Assign Students", professor_path, :method=> :performAssignment, :class => 'btn btn-primary'
-        %div.col-lg-12.text-center
-          =button_to "Send assignments", assignments_path, :method=> :send_assignments, :method=> :get, :params =>{student:0},:class => 'btn btn-primary btn-large'
-          //%button.btn.btn-primary.btn-large Email Assignments to Students
-          
-          
+                %td= paper.students_assigned
+    %h2 Form Here
+    = form_tag student_path(@student) do, :method => :put do 
+      = label :eform, :form_uin, "form_uin"
+      = number_field :eform, "form_uin", :value => 0
+      
+      = label :eform, :email, 'picked_preference'
+      = text_field :email, 'picked_preference'
+  
+      =label :eform,
+      %select#prefOne
+        %option None
+         - @papers.each do |i|
+            %option{:value => i.title}= i.title
+      = submit_tag 'Submit Form', :class => 'btn btn-primary'

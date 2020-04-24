@@ -1,0 +1,2 @@
+class Eform < ApplicationRecord
+end

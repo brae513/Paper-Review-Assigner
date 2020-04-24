@@ -84,35 +84,20 @@
       %li.navBar
         = link_to "Overview", professor_path
       %li.navBar
+        = link_to "Papers", papers_path
+      %li.navBar
         = link_to "Students", students_path
         
       %li.navBar{:style => "float:right"}
         = link_to "Log Out", destroy_user_session_path, :method => :delete
     
-%h2 Edit existing student
+%h2 
+  -"Add student to #{@paper.title}"
 
-= form_tag student_path(@student), :method => :put do 
+= form_tag paper_path(@paper, type:"add"), :method => :put do 
   %div
-    = text_field :student, 'name'
-    = label :student, :name, 'Name'
-
-
+    =label :paper, 'Student to add'
+    =select_tag :student, options_for_select(@options)
   %div
-    = text_field :student, 'email'
-    = label :student, :email, "E-mail"
-    
-  
-  %div
-    = number_field :student, :paper_history
-    = label :student, :paper_history, "Previous paper amount"
-    
-  
-  %div
-    = radio_button :student, :classification, "Junior", :checked => !@senior
-    = label :classification_junior, "Junior"
-    = radio_button :student, :classification, "Senior", :checked => @senior
-    = label :classification_senior, "Senior"
-
-      
-  = submit_tag 'Edit student', :class => 'btn btn-primary'
+  = submit_tag 'Add student', :class => 'btn btn-primary'
   
