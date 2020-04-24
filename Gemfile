@@ -46,6 +46,7 @@ end
 group :test do
   # Adds support for Capybara system testing and selenium driver
   #gem 'capybara', '>= 2.15'
+  gem 'shoulda-matchers'
   gem 'selenium-webdriver'
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
@@ -55,7 +56,9 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 group :test, :development do
-  gem 'cucumber-rails'
+  gem 'simplecov', :require => false
+  gem 'rspec-rails'
+  gem 'cucumber-rails', :require => false
   gem 'cucumber-rails-training-wheels'
   gem 'database_cleaner'
   gem 'capybara'
