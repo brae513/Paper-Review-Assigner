@@ -67,8 +67,12 @@ When /^(?:|I )go to (.+)$/ do |page_name|
   visit path_to(page_name)
 end
 
+When /^(?:|I )presss "([^\"]*)"$/ do |button|
+ click_button(button, disabled: true)
+end
+
 When /^(?:|I )press "([^\"]*)"$/ do |button|
- click_button(button, visible: false)
+ click_button(button)
 end
 
 When /^(?:|I )press "([^\"]*)" from "([^\"]*)"$/ do |button, field|
