@@ -26,6 +26,11 @@ class PapersController < ApplicationController
         end
       end
     end
+    
+    @paper.students_assigned.each do |s|
+      @student = Student.find(s)
+      @student.update_attribute(:current_papers,@student.current_papers-1)
+    end
         
     @paper.destroy
     flash[:notice] = "Paper '#{@paper.title}' deleted."
