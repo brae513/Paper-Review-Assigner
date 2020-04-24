@@ -28,8 +28,10 @@ class PapersController < ApplicationController
     end
     
     @paper.students_assigned.each do |s|
-      @student = Student.find(s)
-      @student.update_attribute(:current_papers,@student.current_papers-1)
+      if @students.include?(s)
+        @student = Student.find(s)
+        @student.update_attribute(:current_papers,@student.current_papers-1)
+      end
     end
         
     @paper.destroy
