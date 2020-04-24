@@ -10,11 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2020_04_23_085556) do
-=======
-ActiveRecord::Schema.define(version: 2020_04_19_070137) do
->>>>>>> master
 
   create_table "eforms", force: :cascade do |t|
     t.integer "form_uin"
