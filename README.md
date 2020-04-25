@@ -1,12 +1,6 @@
 # README
 
-Iteration 2 Link: https://shrouded-beach-66812.herokuapp.com/
-
-Current Link 4/2/2020: https://enigmatic-crag-69698.herokuapp.com/
-
-Current Link 4/10/2020: https://stormy-sands-43449.herokuapp.com/
-
-Current Link 4/12/2020: https://fathomless-hamlet-01065.herokuapp.com/
+Up-To-Date Heroku Link 4/24/2020: https://pacific-anchorage-75761.herokuapp.com/
 
 REMINDER:: YOU **MUST** TRY RUNNING ON HEROKU BEFORE PUSHING TO MASTER.
 
@@ -22,7 +16,7 @@ How to run:
 
 3. $ sudo apt-get install libpq-dev
 
-4. $ bundle install --without production (((might look like it froze. Just wait. It's slow.)))
+4. $ bundle install --without production
 
 5. $ npm install --global yarn
 
@@ -41,7 +35,7 @@ Run Locally:
 
 11. $ export SECRET_KEY_BASE=output-of-rake-secret
 
-12. $ rake assets:precompile (((might look like it froze. Just wait. It's slow.)))
+12. $ rake assets:precompile
 
 13. $ RAILS_ENV=production rails s
 
