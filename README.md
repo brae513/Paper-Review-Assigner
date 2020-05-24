@@ -1,7 +1,5 @@
 # README
 
-Up-To-Date Heroku Link 4/24/2020: https://pacific-anchorage-75761.herokuapp.com/
-
 REMINDER:: YOU **MUST** TRY RUNNING ON HEROKU BEFORE PUSHING TO MASTER.
 
 The app may work locally but not on Heroku. 
